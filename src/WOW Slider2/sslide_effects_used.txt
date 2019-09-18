@@ -1,0 +1,7 @@
+EFFECTS USED FOR SLIDER
+
+Page 
+Blur
+Collage
+Slices
+Blinds
