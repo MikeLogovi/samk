@@ -4,15 +4,16 @@
              <h1 class="section-title">Our Awesome Team</h1>
         </div>
         <div class="container team-content">
+            
             <carousel :autoplay="true" :responsive="{0:{item:1,nav:false},600:{item:2,nav:true},959:{item:3,nav:true}}">
-                <div class=" col-sm-12">
+                    <div class=" col-sm-12">
                       <div class="team-block">
                           <div class="team-man">
-                           <img src="/static/images/img23.jpg">
+                              <img src="/static/images/img23.jpg">
                          </div>
                          <div class="team-description text-center">
                              <div class="title">
-                                 <h3>Samuel KODJO AWEDEAH</h3>
+                                 <h3>Samuel KODJO AGODOA</h3>
                                  <span>GHANA</span>
                              </div>
                              <p>
@@ -27,8 +28,8 @@
                             </div> 
                          </div>
                       </div>
-                 </div>
-                 
+                  </div>
+                   
                   <div class=" col-sm-12">
                       <div class="team-block">
                           <div class="team-man">
@@ -129,7 +130,8 @@
                  
 
             </carousel>
-        </div>
+            </div>
+        
     </section>
 </template>
 <script>
@@ -143,11 +145,11 @@ export default {
     background-color:#eee;
 }
 .team-man{
-    position:absolute;
+    position:relative;
     left:50%;
     margin-left:-50px;
-    top:-50px;
-    overflow:hidden;
+    top:50px;
+    overflow:visible!important;
     min-width:100px;
     min-height:100px;
     width:100px;
@@ -155,10 +157,7 @@ export default {
     border:10px solid #00D320;
     border-radius:50%;
 }
-.team-content{
-    margin-top:20px;
-    margin-bottom:30px;
-}
+
 .team-man img{
     width:100%;
     height:100%;
@@ -175,10 +174,15 @@ export default {
     margin-bottom:5px;
 }
 .team-block span{
-    color:#6c6c6c;
+    
+    color:transparent;
+    background-clip:text;
+    -webkit-background-clip:text;
+    background-image:linear-gradient(25deg,#A64EAE,#4683B7);
     font-size:16px;
     text-transform:uppercase;
     letter-spacing:0.025em;
+    font-family:'Fredoka One';
 }
 .team-block p{
     color:dimgrey;
@@ -236,5 +240,9 @@ export default {
 border-color:#eee;
 background:#00D320;
 color:#eee;
+}
+.team-content{
+    padding-bottom:40px;
+    padding-top:-50px;
 }
 </style>

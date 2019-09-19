@@ -14,38 +14,62 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+        <h2 class="featurette-heading">ABOUT SAM K TRAVEL & TOUR</h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+          <img src="/static/logo3.png" width="500" height="500"/>
       </div>
     </div>
 
     <hr class="featurette-divider">
+      <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Our vision</h2>
+        <p class="lead ">Our vision is to build the biggest tourism campagny in West Africa and beyond</p>
+      </div>
+      <div class="col-md-5">
+         <img src="/static/images/vision.jpg" width="500" height="500"/>
+      </div>
+    </div>
+    <hr class="featurette-divider">
 
     <div class="row featurette">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      <div class="col-md-7 order-md-2 ajust-content" >
+        <h2 class="featurette-heading">Our Missions</h2>
+        <p class="lead">
+             <ul>
+                 <li>
+                   Promoting African tourism through development 
+                   of the sites and implementation of a more secured safety measures
+                 </li>
+                
+                 <li>Also exposing the Awesome touristes in Africa by making it more Attractive and fun</li>
+             </ul>
+        </p>
       </div>
       <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+          <img src="/static/images/mission.jpg" width="500" height="500"/>
       </div>
     </div>
 
     <hr class="featurette-divider">
 
     <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      <div class="col-md-7 order-md-2 ajust-content">
+        <h2 class="featurette-heading">THE CEO</h2>
+        <p class="lead">
+             SAMUEL KODJO AGODOA
+        </p>
       </div>
-      <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      <div class="col-md-5 order-md-1">
+          <img src="/static/images/ceo.jpg" width="500" height="500" style="border-radius:50%"/>
       </div>
     </div>
+
     <hr class="featurette-divider">
+
+    
   </div>
 <Team/>
 </main>
@@ -147,5 +171,30 @@ export default {
   .featurette-heading {
     margin-top: 7rem;
   }
+}
+
+.featurette-heading{
+  font-family:'Fredoka One';
+  color:transparent;
+  background-clip:text;
+  -webkit-background-clip:text;
+  background-image:linear-gradient(25deg,#A64EAE,#4683B7);;
+}
+.ajust-content{
+  padding-left:170px;
+}
+.lead{
+  font-size:1.5em;
+  font-family:'Roboto Condensed';
+  
+  line-height:30px;
+  letter-spacing:0.025rem;
+}
+.lead ul li{
+  font-size:1.5em;
+  font-family:'Roboto Condensed';
+  line-height:30px;
+  letter-spacing:0.025rem;
+  padding-bottom:15px;
 }
 </style>

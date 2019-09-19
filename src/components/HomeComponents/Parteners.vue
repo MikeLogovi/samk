@@ -5,37 +5,30 @@
         </div>
    
         <div class="container">
-            <div class="row">
+            
+                    <carousel :autoplay="true" :responsive="{0:{item:1,nav:false},600:{item:2,nav:true},959:{item:3,nav:true}}">
+                        
                 <div class="col-md-12">
-                    <carousel :autoplay="true">
-                        
                             <img src="/static/logo2.PNG" class="logo-parteners " alt=""> 
-                        
-                         
+                 </div>       
+                         <div class="col-md-12">
                             <img src="/static/logo1.PNG" class="logo-parteners " alt=""> 
-                        
-                         
-                            <img src="/static/logo3.png" class="logo-parteners " alt=""> 
-                        
-                         
+                 </div>   
+                 
+                   <div class="col-md-12">
+                            <img src="/static/logo4.PNG" class="logo-parteners " alt=""> 
+                 </div>    
+                  <div class="col-md-12">
+                            <img src="/static/logo1.PNG" class="logo-parteners " alt=""> 
+                 </div>     
+                  <div class="col-md-12">
                             <img src="/static/logo2.PNG" class="logo-parteners " alt=""> 
-                        
-                         
-                            <img src="/static/logo4.PNG" class="logo-parteners " alt=""> 
-                        
-                          
-                            <img src="/static/logo4.PNG" class="logo-parteners " alt=""> 
-                        
-                          
-                            <img src="/static/logo1.PNG" class="logo-parteners " alt=""> 
-                        
-                          
-                            <img src="/static/logo1.PNG" class="logo-parteners " alt=""> 
+                 </div>             
                         
                      </carousel>
                 </div>
-            </div>
-        </div>
+            
+       
         </section>
 </template>
 <script>
@@ -52,8 +45,10 @@ export default{
 @import url('../../assets/assetics/owl/assets/owl.carousel.css');
 @import url('../../assets/assetics/owl/assets/owl.theme.default.css');
 .logo-parteners{
-    width:150px!important;
-    height:150px!important;
+    width:250px!important;
+    height:250px!important;
+    display:inline-block;
+    padding:0 0 0 90px;
 }
 .section-title{
   font-family:'Fredoka One';

@@ -31,7 +31,7 @@
                         <h2>Our newsletter</h2>
                         <p>In order to inform you in time for all our future trips,traveelling,SAM K Travel &Tour would like you to subscibe to our newsletter</p>
                         <form action="" method="post">
-                            <input type="email" name="email">
+                            <input type="email" name="email" placeholder="Your email adress">
                             <input type="submit" value="subscribe">
                          </form>
                     </div>
