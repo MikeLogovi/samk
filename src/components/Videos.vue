@@ -1,61 +1,33 @@
 <template>
+<div>
+    <TopBar/>
+    <br/><br/><br>
     <section id="videos" class="videos">
-        <div class="default-space"></div>
-        <div class="container">
-              <div class='row'>
-                   <div class="col-lg-12">
-                       <div class="default-title">
-                           <h4>
-                               <b>
-                                   Why choose us?
-                              </b>
-                           </h4>
-                        </div>
-                    </div>
-              </div>
-  
-              <div class="row">
-                   <div class="col-lg-6">
-                       <div class="videos-content">
-                           <h3>Hire Me</h3>
-                           <p>
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                              Repudiandae cupiditate fugit, est beatae deserunt officia quaerat quibusdam temporibus
-                              qui iusto quia, nesciunt nihil quo facere laudantium architecto vero quis dolorem!
-                            </p>
-                        </div>
+         <div class="container text-center">
+              <h1 class="section-title">Videos</h1>
+         </div>
+         <div class="container marketing">
+    
 
-                        <div class="videos-content">
-                           <h3>Which service you get from me?</h3>
-                           <p>
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                              Repudiandae cupiditate fugit, est beatae deserunt officia quaerat quibusdam temporibus
-                              qui iusto quia, nesciunt nihil quo facere laudantium architecto vero quis dolorem!
-                            </p>
-                        </div>
 
-                         <div class="videos-content">
-                           <h3>Which files I will provide you?</h3>
-                           <p>
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                              Repudiandae cupiditate fugit, est beatae deserunt officia quaerat quibusdam temporibus
-                              qui iusto quia, nesciunt nihil quo facere laudantium architecto vero quis dolorem!
-                            </p>
-                        </div>
+    
 
-                   </div>
-                   <div class="col-lg-6" id="video-right-static">
-                       <div class="author-video-section">
-                        </div>
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">First video</h2>
+        <p class="lead">This is the first video.</p>
+      </div>
+       <div class="col-md-5 ">
+
                         <div class="video_area">
-                             <div class="video_bitton">
+                                
+                             <div class="video_button">
                                  <a href="" data-toggle="modal" data-target="#myModal">
                                      <span class='profilepicture'></span>
                                  </a>
                              </div>
                         </div>
-                   </div>
-                   <div class="modal fade"  id="myModal" tabindex="1" role="dialog">
+                        <div class="modal fade"  id="myModal" tabindex="1" role="dialog">
                         <div class="modal-dialog modal-lg" role="document">
                               <div class="modal-content">
                                    <div class='modal-header raisa-video-btn'>
@@ -65,25 +37,112 @@
                                   </div>
                                   <div class="modal-body">
                                         <div class="video-container">
-                                             <iframe width="560" height="315" 
-                                             src="https://www.youtube.com/embed/tuTce4gNuMM" 
-                                             frameborder="0"
-                                              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/bvVb5I2dhIM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         </div>
                                   </div>
                               </div>
                         </div>
                    </div>
-              </div>
         </div>
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+     
     </section>
+    <Footer/>
+</div>
 </template>
 <script>
+import TopBar from './TopBar'
+import Footer from './Footer'
 export default {
-    
+    components:{TopBar,Footer},
 }
 </script>
 <style scoped>
+
+
+
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+.featurette-heading{
+  font-family:'Fredoka One';
+  color:transparent;
+  background-clip:text;
+  -webkit-background-clip:text;
+  background-image:linear-gradient(25deg,#A64EAE,#4683B7);;
+}
+.ajust-content{
+  padding-left:170px;
+}
+.lead{
+  font-size:1.5em;
+  font-family:'Roboto Condensed';
+  
+  line-height:30px;
+  letter-spacing:0.025rem;
+}
+.lead ul li{
+  font-size:1.5em;
+  font-family:'Roboto Condensed';
+  line-height:30px;
+  letter-spacing:0.025rem;
+  padding-bottom:15px;
+}
+
+
+
+
+
 .videos{
     position:relative;
 }
@@ -107,69 +166,70 @@ export default {
 }
 .video_area{
     position:relative;
+    width:500px;
+    height:300px;
+  
+    background:url(../../static/images/img5.jpg) no-repeat center center;
+    background-size:cover;
 }
 .author-video-section{
-    position:hidden;
+    
     border-radius:10px;
-    background:url(../../../static/images/img1.jpg) no-repeat center center;
+    background:url(../../static/images/img5.jpg) no-repeat center center;
     position:absolute;
-    right:0;
+    left:0;
     top:0;
-    height:100%;
+    height:500px;
     width:50%;
-    background-position:0% 66%;
+    background-position:center;
 }
-#video-right-static{
-    position:static;
+.video-right-static{
+    position: static;
 }
+
 .profilepicture{
     position:absolute;
     border-radius:50%;
     border:7px solid #ededed;
-    padding:10px;
+    padding:0px;
     width:90px;
     height:90px;
     background:white;
-    color:#ff6046;
+    color:#00d320;;
     margin:auto;
     top:-1px;
-    left:5px;
+    left:0;
     bottom:0;
     right:0;
     display:inline-block;
     text-align:center;
     z-index:888;
+   background:url(../../static/images/play.png) no-repeat center center;
+    background-size:cover;
     transition:all 0.4s ease-in-out;
 }
 .profilepicture::before{
     content:"";
     position:absolute;
+    font-size:24px;
     left:0;
     right:0;
-    background:url(video-icon.png) no-repeat center center;
-    width:29px;
-    height:34px;
+    font-family:'Fredoka One';
+    width:100px;
+    height:100px;
     text-align:center;
     margin:0 auto;
     top:26%;
 }
-.profilepicture:hover{
-    color:#ddd;
-    color:white;
-}
+
 .video_button{
     position:absolute;
-    top:180px;
+    top:50%;
     z-index:33;
-    right:43%;
+    left:40%;
 }
-.video_button a img{
-    position:absolute;
-    right:25%;
-    z-index:12;
-    top:38%;
-}
-.raisa-video-btody{
+
+.raisa-video-btn{
     padding-top:45px;
 }
 .raisa-video-btn{
@@ -177,10 +237,10 @@ export default {
     padding-bottom:0px;
     position:relative;
 }
-.raisa-ideo-btn button{
+.raisa-video-btn button{
     display:inline-block;
-    background-color:#fab702;
-    postion:absolute;
+    background-image:linear-gradient(25deg,#A64EAE,#4683B7);
+    position:absolute;
     z-index:12;
     right:22px;
     padding:8px 40px;
@@ -192,7 +252,6 @@ export default {
     position:relative;
     flex:1 1 auto;
     padding:1rem;
-
     margin-top:35px;
 }
 .modal.show .modal.dialog{
@@ -200,7 +259,8 @@ export default {
 }
 .video-container{
      position:relative;
-     padding-bottom:230px;
+     padding-bottom:56.25%;
+     padding-top:30px;
      height:0;
      overflow:hidden;
 }
@@ -216,7 +276,7 @@ export default {
      width:760px;
      padding:10px auto;
  }   
- .modal-contenu{
+ .modal-content{
      position:relative;
      background-color:white;
      background-clip:padding-box;

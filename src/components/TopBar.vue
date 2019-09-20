@@ -1,10 +1,11 @@
 <template>
  <nav class="nav">
                    <ul>
-                        <li class='navLi'><a href="#" >Home</a></li>
+                        <li class='navLi'><router-link to="/">Home</router-link></li>
                         <li class='navLi'><router-link to="/gallery" >Gallery</router-link></li>
-                        <li class='navLi'><a href="#">Videos</a></li>
+                        <li class='navLi'><router-link to="/videos">Videos</router-link></li>
                         <li class='navLi'><a href="#clients"  v-smooth-scroll="{offset:-100}">Clients</a></li>
+                        <li class='navLi'><router-link to="/about">About</router-link></li>
                         <li ><a href="#"><img class="mylogo white" src="/static/logo3.png"/><img class="mylogo black" src="/static/logo3.png"/></a></li>
                         <li class='navLi'><a href="#events"  v-smooth-scroll="{offset:-100}">Events</a></li>
                         <li class='navLi'><a href="#portfolio" v-smooth-scroll="{offset:-100}">Portfolio</a></li>
@@ -40,7 +41,7 @@ export default {
    padding-bottom:3px;
     transition:all 0.3s;
     background-color:white;
-    z-index:9;
+    z-index:9999;
     position:absolute;
     top:0px;
     width:100%;

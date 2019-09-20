@@ -1,8 +1,8 @@
 <template>
 <div>
       <TopBar/>
-       <div class="rowli"> 
-  <div class="column">
+<div class="rowli"> 
+  <div class="column images" v-viewer="{movable: false}">
     <img src='/static/images/img1.JPG' style="width:100%; height:20%">
     <img src='/static/images/img2.JPG' style="width:100%; height:10%">
     <img src='/static/images/img1.JPG' style="width:100%; height:20%">
@@ -11,7 +11,7 @@
     <img src='/static/images/img1.JPG' style="width:100%; height:18%">
     <img src='/static/images/img1.JPG' style="width:100%; height:15%">
   </div>
-  
+     
     <div class="column">
     <img src='/static/images/img1.JPG' style="width:100%; height:20%">
     <img src='/static/images/img2.JPG' style="width:100%; height:10%">
@@ -41,41 +41,26 @@
     <img src='/static/images/img1.JPG' style="width:100%; height:29%">
   </div>
 </div>
-
+<Footer/>
+ <button type="button" @click="show">Show</button>
 </div>
 </template>
 <script>
-import VueGridLayout from 'vue-grid-layout';
 import TopBar from './TopBar'
+import Footer from './Footer'
 export default {
    name:'Gallery' ,
-   components:{ TopBar,GridLayout: VueGridLayout.GridLayout,
-           GridItem: VueGridLayout.GridItem},
+   components:{ TopBar,Footer},
    data(){
        return{
-           layout:[
-	    {"x":0,"y":0,"w":4,"h":2,"i":"0","source":'/static/images/img1.JPG'},
-	    {"x":2,"y":0,"w":2,"h":4,"i":"1","source":'/static/images/img1.JPG'},
-	    {"x":4,"y":0,"w":2,"h":5,"i":"2","source":'/static/images/img1.JPG'},
-	    {"x":6,"y":0,"w":2,"h":3,"i":"3","source":'/static/images/img1.JPG'},
-	    {"x":8,"y":0,"w":2,"h":3,"i":"4","source":'/static/images/img1.JPG'},
-	    {"x":10,"y":0,"w":2,"h":3,"i":"5","source":'/static/images/img1.JPG'},
-	    {"x":0,"y":5,"w":2,"h":5,"i":"6","source":'/static/images/img1.JPG'},
-	    {"x":2,"y":5,"w":2,"h":5,"i":"7","source":'/static/images/img1.JPG'},
-	    {"x":4,"y":5,"w":2,"h":5,"i":"8","source":'/static/images/img1.JPG'},
-	    {"x":6,"y":3,"w":2,"h":4,"i":"9","source":'/static/images/img1.JPG'},
-	    {"x":8,"y":4,"w":2,"h":4,"i":"10","source":'/static/images/img1.JPG'},
-	    {"x":10,"y":4,"w":2,"h":4,"i":"11","source":'/static/images/img1.JPG'},
-	    {"x":0,"y":10,"w":2,"h":5,"i":"12","source":'/static/images/img1.JPG'},
-	    {"x":2,"y":10,"w":2,"h":5,"i":"13","source":'/static/images/img1.JPG'},
-	    {"x":4,"y":8,"w":2,"h":4,"i":"14","source":'/static/images/img1.JPG'},
-	    {"x":6,"y":8,"w":2,"h":4,"i":"15","source":'/static/images/img1.JPG'},
-	    {"x":8,"y":10,"w":2,"h":5,"i":"16","source":'/static/images/img1.JPG'},
-	    {"x":10,"y":4,"w":2,"h":2,"i":"17","source":'/static/images/img1.JPG'},
-	    {"x":0,"y":9,"w":2,"h":3,"i":"18","source":'/static/images/img1.JPG'},
-	    {"x":2,"y":6,"w":2,"h":2,"i":"19","source":'/static/images/img1.JPG'}
-	]
+       
        }
+   },
+   methods:{
+     show(){
+        const viewer = this.$el.querySelector('.images').$viewer
+        viewer.show()
+      }
    }
 }
 </script>

@@ -7,7 +7,12 @@ import App from './App'
 import Vuetify from 'vuetify'
 import router from './router'
 import vueSmoothScroll from 'vue2-smooth-scroll'
-
+import 'viewerjs/dist/viewer.css'
+import Viewer from 'v-viewer'
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+Vue.use(BootstrapVue)
+Vue.use(Viewer)
 import VueWow from 'vue-wow'
 
 Vue.use(VueWow)
