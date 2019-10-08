@@ -56,8 +56,25 @@
 <script>
 import TopBar from './TopBar'
 import Footer from './Footer'
+import {mapState} from 'vuex'
 export default {
     components:{TopBar,Footer},
+     computed:{
+        ...mapState([
+            'videos'
+        ])
+    },
+    mounted(){
+          //this.loadVideos() 
+          Echo.channel('video_crud').listen('VideoCrud',(data)=>{
+            this.loadVideos()
+        })
+    },
+    methods:{
+        loadVideos(){
+            this.$store.dispatch('loadVideos')
+        }
+    }
 }
 </script>
 <style scoped>

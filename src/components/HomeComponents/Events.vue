@@ -110,11 +110,25 @@
 </template>
 <script>
 import {UAnimateContainer, UAnimate} from 'vue-wow'
+import {mapState} from 'vuex'
 export default {
     name:'Events',
     components:{UAnimateContainer, UAnimate},
+    computed:{
+        ...mapState([
+            'events'
+        ])
+    },
     mounted(){
-
+          //this.loadEvents() 
+          Echo.channel('event_crud').listen('EventCrud',(data)=>{
+            this.loadEvents()
+        })
+    },
+    methods:{
+        loadEvents(){
+            this.$store.dispatch('loadEvents')
+        }
     }
 }
 </script>

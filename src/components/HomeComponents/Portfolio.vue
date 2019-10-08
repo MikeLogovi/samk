@@ -64,12 +64,23 @@
 import VueGallerySlideshow from 'vue-gallery-slideshow'
 import {UAnimateContainer, UAnimate} from 'vue-wow'
 import FadeTransition from 'vue2-transitions'
-
+import {mapState} from 'vuex'
 export default {
     name:"Portfolio",
     components:{ VueGallerySlideshow, UAnimateContainer, UAnimate,FadeTransition},
+     computed:{
+        ...mapState([
+            'videos'
+        ])
+    },
     mounted(){
-
+          //this.loadVideos() 
+          Echo.channel('portfolio_category_crud').listen('PortfolioCategoryCrud',(data)=>{
+            this.loadImages()
+        })
+         Echo.channel('portfolio_image_crud').listen('PortfolioImageCrud',(data)=>{
+            this.loadImages()
+        })
     },
     data(){
         return{
@@ -108,7 +119,10 @@ export default {
     },
     setFilter(filter) {
       this.currentFilter = filter;
-    }
+    },
+    loadVideos(){
+            this.$store.dispatch('loadVideos')
+     }
   },
   
 

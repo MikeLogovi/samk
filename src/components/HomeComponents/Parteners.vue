@@ -5,39 +5,35 @@
         </div>
    
         <div class="container">
-            
-                    <carousel :autoplay="true" :responsive="{0:{item:1,nav:false},600:{item:2,nav:true},959:{item:3,nav:true}}">
-                        
-                <div class="col-md-12">
-                            <img src="/static/logo2.PNG" class="logo-parteners " alt=""> 
-                 </div>       
-                         <div class="col-md-12">
-                            <img src="/static/logo1.PNG" class="logo-parteners " alt=""> 
-                 </div>   
-                 
-                   <div class="col-md-12">
-                            <img src="/static/logo4.PNG" class="logo-parteners " alt=""> 
-                 </div>    
-                  <div class="col-md-12">
-                            <img src="/static/logo1.PNG" class="logo-parteners " alt=""> 
-                 </div>     
-                  <div class="col-md-12">
-                            <img src="/static/logo2.PNG" class="logo-parteners " alt=""> 
-                 </div>             
-                        
-                     </carousel>
-                </div>
+                <carousel :autoplay="true" :responsive="{0:{item:1,nav:false}, 600:{item:2,nav:true},959:{item:3,nav:true}}">
+                     <img  v-for="partner in partners" :key="partner.id" :src="`${backendEndpoint()}storage/${partner.source}`" class="logo-parteners " alt=""> 
+               </carousel>
+         </div>
             
        
         </section>
 </template>
 <script>
 import carousel from 'vue-owl-carousel'
+import {mapState} from 'vuex'
 export default{
    name:'parteners',
    components:{carousel},
+   computed:{
+       ...mapState([
+           'partners'
+       ])
+   },
    mounted(){
- 
+       this.loadPartners()
+       Echo.channel('partner_crud').listen('PartnerCrud',(data)=>{
+           this.loadPartners()
+       })
+   },
+   methods:{
+       loadPartners(){
+           this.$store.dispatch('loadPartners')
+       }
    }
 }
 </script>

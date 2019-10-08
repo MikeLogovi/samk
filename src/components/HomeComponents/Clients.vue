@@ -18,229 +18,24 @@
             
                 <div  id="testimonial-slider">
                   <carousel :autoplay="true" :responsive="{0:{items:1,nav:true},600:{items:2,nav:true},900:{items:3,nav:true}}">
-                       <div class="col-md-12">
-                        <div class="testimonial">
-                            <span class="icon fa fa-quote-left"></span>
-                            <p class="description">
-                                As I am the dresseur de code,I know that SAM K Travel & Tour is the best all over the world.
-                                It's super friendly! I love it so much.
-                                I can help going to their travelling when I have the occasion.
-                                I can advice many people to go and explore the world with this company
-                            </p>
-                            <div class="testimonial-content">
-                                <div class='pic'>
-                                    <img src="/static/images/img23.jpg" alt="">
-                                </div>
-                                <h3 class="title"></h3>
-                                <span class="post">Developper</span>
-                            </div>
-                        </div>
-                    
-                         </div>
-                    
-                          
-                           <div class="col-md-12">
-                        <div class="testimonial">
-                            <span class="icon fa fa-quote-left"></span>
-                            <p class="description">
-                                As I am the dresseur de code,I know that SAM K Travel & Tour is the best all over the world.
-                                It's super friendly! I love it so much.
-                                I can help going to their travelling when I have the occasion.
-                                I can advice many people to go and explore the world with this company
-                            </p>
-                            <div class="testimonial-content">
-                                <div class='pic'>
-                                    <img src="/static/images/img23.jpg" alt="">
-                                </div>
-                                <h3 class="title"></h3>
-                                <span class="post">Developper</span>
-                            </div>
-                        </div>
-                    
-                         </div>
-                    
-                     <div class="col-md-12">
-                        <div class="testimonial">
-                            <span class="icon fa fa-quote-left"></span>
-                            <p class="description">
-                                As I am the dresseur de code,I know that SAM K Travel & Tour is the best all over the world.
-                                It's super friendly! I love it so much.
-                                I can help going to their travelling when I have the occasion.
-                                I can advice many people to go and explore the world with this company
-                            </p>
-                            <div class="testimonial-content">
-                                <div class='pic'>
-                                    <img src="/static/images/img23.jpg" alt="">
-                                </div>
-                                <h3 class="title"></h3>
-                                <span class="post">Developper</span>
-                            </div>
-                        </div>
-                    
-                         </div>
-                    
-                     <div class="col-md-12">
-                        <div class="testimonial">
-                            <span class="icon fa fa-quote-left"></span>
-                            <p class="description">
-                                As I am the dresseur de code,I know that SAM K Travel & Tour is the best all over the world.
-                                It's super friendly! I love it so much.
-                                I can help going to their travelling when I have the occasion.
-                                I can advice many people to go and explore the world with this company
-                            </p>
-                            <div class="testimonial-content">
-                                <div class='pic'>
-                                    <img src="/static/images/img23.jpg" alt="">
-                                </div>
-                                <h3 class="title"></h3>
-                                <span class="post">Developper</span>
-                            </div>
-                        </div>
-                    
-                         </div>
-                    
-                     <div class="col-md-12">
-                        <div class="testimonial">
-                            <span class="icon fa fa-quote-left"></span>
-                            <p class="description">
-                                As I am the dresseur de code,I know that SAM K Travel & Tour is the best all over the world.
-                                It's super friendly! I love it so much.
-                                I can help going to their travelling when I have the occasion.
-                                I can advice many people to go and explore the world with this company
-                            </p>
-                            <div class="testimonial-content">
-                                <div class='pic'>
-                                    <img src="/static/images/img23.jpg" alt="">
-                                </div>
-                                <h3 class="title"></h3>
-                                <span class="post">Developper</span>
-                            </div>
-                        </div>
-                    
-                         </div>
-                    
-                     <div class="col-md-12">
-                        <div class="testimonial">
-                            <span class="icon fa fa-quote-left"></span>
-                            <p class="description">
-                                As I am the dresseur de code,I know that SAM K Travel & Tour is the best all over the world.
-                                It's super friendly! I love it so much.
-                                I can help going to their travelling when I have the occasion.
-                                I can advice many people to go and explore the world with this company
-                            </p>
-                            <div class="testimonial-content">
-                                <div class='pic'>
-                                    <img src="/static/images/img23.jpg" alt="">
-                                </div>
-                                <h3 class="title"></h3>
-                                <span class="post">Developper</span>
-                            </div>
-                        </div>
-                    
-                         </div>
-                    
-                     <div class="col-md-12">
-                        <div class="testimonial">
-                            <span class="icon fa fa-quote-left"></span>
-                            <p class="description">
-                                As I am the dresseur de code,I know that SAM K Travel & Tour is the best all over the world.
-                                It's super friendly! I love it so much.
-                                I can help going to their travelling when I have the occasion.
-                                I can advice many people to go and explore the world with this company
-                            </p>
-                            <div class="testimonial-content">
-                                <div class='pic'>
-                                    <img src="/static/images/img23.jpg" alt="">
-                                </div>
-                                <h3 class="title"></h3>
-                                <span class="post">Developper</span>
-                            </div>
-                        </div>
-                    
-                         </div>
-                    
-                     <div class="col-md-12">
-                        <div class="testimonial">
-                            <span class="icon fa fa-quote-left"></span>
-                            <p class="description">
-                                As I am the dresseur de code,I know that SAM K Travel & Tour is the best all over the world.
-                                It's super friendly! I love it so much.
-                                I can help going to their travelling when I have the occasion.
-                                I can advice many people to go and explore the world with this company
-                            </p>
-                            <div class="testimonial-content">
-                                <div class='pic'>
-                                    <img src="/static/images/img23.jpg" alt="">
-                                </div>
-                                <h3 class="title"></h3>
-                                <span class="post">Developper</span>
-                            </div>
-                        </div>
-                    
-                         </div>
-                    
-                     <div class="col-md-12">
-                        <div class="testimonial">
-                            <span class="icon fa fa-quote-left"></span>
-                            <p class="description">
-                                As I am the dresseur de code,I know that SAM K Travel & Tour is the best all over the world.
-                                It's super friendly! I love it so much.
-                                I can help going to their travelling when I have the occasion.
-                                I can advice many people to go and explore the world with this company
-                            </p>
-                            <div class="testimonial-content">
-                                <div class='pic'>
-                                    <img src="/static/images/img23.jpg" alt="">
-                                </div>
-                                <h3 class="title"></h3>
-                                <span class="post">Developper</span>
-                            </div>
-                        </div>
-                    
-                         </div>
-                    
-                     <div class="col-md-12">
-                        <div class="testimonial">
-                            <span class="icon fa fa-quote-left"></span>
-                            <p class="description">
-                                As I am the dresseur de code,I know that SAM K Travel & Tour is the best all over the world.
-                                It's super friendly! I love it so much.
-                                I can help going to their travelling when I have the occasion.
-                                I can advice many people to go and explore the world with this company
-                            </p>
-                            <div class="testimonial-content">
-                                <div class='pic'>
-                                    <img src="/static/images/img23.jpg" alt="">
-                                </div>
-                                <h3 class="title"></h3>
-                                <span class="post">Developper</span>
-                            </div>
-                        </div>
-                    
-                         </div>
-                    
-                     <div class="col-md-12">
-                        <div class="testimonial">
-                            <span class="icon fa fa-quote-left"></span>
-                            <p class="description">
-                                As I am the dresseur de code,I know that SAM K Travel & Tour is the best all over the world.
-                                It's super friendly! I love it so much.
-                                I can help going to their travelling when I have the occasion.
-                                I can advice many people to go and explore the world with this company
-                            </p>
-                            <div class="testimonial-content">
-                                <div class='pic'>
-                                    <img src="/static/images/img23.jpg" alt="">
-                                </div>
-                                <h3 class="title"></h3>
-                                <span class="post">Developper</span>
-                            </div>
-                        </div>
-                    
-                         </div>
-                    
+                       
 
                     
+                        <div class="testimonial" v-for="comment in comments" :key="comment.id">
+                            <span class="icon fa fa-quote-left"></span>
+                            <p class="description">
+                                {{comment.comment}}
+                            </p>
+                            <div class="testimonial-content">
+                                <div class='pic'>
+                                    <img :src="`${backendEndpoint()}storage/${comment.source}`" alt="">
+                                </div>
+                                <h1 class="title">coucou</h1>
+                                <span class="post">{{comment.author_function}}</span>
+                            </div>
+                        </div>
+                    
+                                     
                    </carousel>
                  </div>
             </div>
@@ -252,8 +47,25 @@
 <script>
 import carousel from 'vue-owl-carousel'
 import {UAnimateContainer, UAnimate} from 'vue-wow'
+import {mapState} from 'vuex'
 export default {
     components:{carousel,UAnimateContainer, UAnimate},
+    computed:{
+        ...mapState([
+            'comments'
+        ])
+    },
+    mounted(){
+        this.loadComments()
+        Echo.channel('comment_crud').listen('CommentCrud',(data)=>{
+            this.loadComments()
+        })
+    },
+    methods:{
+        loadComments(){
+            this.$store.dispatch('loadComments')
+        }
+    }
 }
 </script>
 <style scoped>
@@ -318,9 +130,10 @@ export default {
     height:auto;
 }
 .testimonial .title{
-    font-size:5px;
+    font-size:20px;
     font-weight:bold;
-    color:white;
+    text-shadow: 5px #eee;
+    color:red;
     text-transform:capitalize;
     margin:0 0 5px 0;
 }

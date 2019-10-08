@@ -43,12 +43,13 @@
      <div class="application app">
         <header class="header">
             <ul class="bxslider" ref="bxsliding">
-                <li>
+                <li v-for="slider in sliders" :key="slider.id">
                     <div class="bg-video">
-                        <video playsinline="playsinline" autoplay="autoplay" loop="loop" id="herovideo" muted="muted">
-                           <source src="/static/videos/video1.mp4" type="video/mp4">
+
+                        <video playsinline="playsinline" autoplay="autoplay" loop="loop" id="herovideo" muted="muted" v-if="isVideo(slider.source)">
+                           <source :src="`${backendEndpoint()}storage/${slider.source}`" type="video/mp4">
                         </video>
-                     
+                        <img :src="`${backendEndpoint()}storage/${slider.source}`" id="herovideo"  v-else-if="isImage(slider.source)"/>
                         <div class="container">
                             <div class="vidContent">
                                 
@@ -72,62 +73,6 @@
 
                     </ul>
                 </li>
-
-                 <li>
-                    <div class="bg-video">
-                        <video playsinline="playsinline" autoplay="autoplay" loop="loop" id="herovideo" muted="muted" >
-                           <source src="/static/videos/video2.mp4" type="video/mp4">
-                        </video>
-                     
-                        <div class="container">
-                            <div class="vidContent">
-                                <h1 class="text-left">WELCOME TO SAM K TRAVEL & TOUR</h1>
-                                <p class="text-left">
-                                    We love travelling.<br>We love visiting place in Algeria and so many places all around the world.<br/>Stay here with us,see our awesome gallery,videos and events!
-                                </p>
-                                <a href="" id="vidBtn">GET STARTED</a>
-                            </div>
-                        </div>
-                    </div>
-                     <ul class="social-icons list-inline">
-                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                                    <li><a href=""><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-
-                    </ul>
-                </li>
-
-                   <li>
-                    <div class="bg-video">
-                        <video playsinline="playsinline" autoplay="autoplay" loop="loop" id="herovideo" muted="muted">
-                           <source src="/static/videos/video3.mp4" type="video/mp4">
-                        </video>
-                     
-                        <div class="container">
-                            <div class="vidContent">
-                                <h1 class="text-left">WELCOME TO SAM K TRAVEL & TOUR</h1>
-                                <p class="text-left">
-                                    We love travelling.<br>We love visiting place in Algeria and so many places all around the world.<br/>Stay here with us,see our awesome gallery,videos and events!
-                                </p>
-                                <a href="" id="vidBtn">GET STARTED</a>
-                            </div>
-                        </div>
-                    </div>
-                     <ul class="social-icons list-inline">
-                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                                    <li><a href=""><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-
-                    </ul>
-                </li>
-
-
             </ul> 
               <TopBar/>
        </header>
@@ -233,10 +178,27 @@ import Parallax from './HomeComponents/Parallax'
 import Parallax2 from './HomeComponents/Parallax2'
 import Contact from './HomeComponents/Contact'
 import {UAnimateContainer, UAnimate} from 'vue-wow'
+import {mapState} from 'vuex'
 export default {
 name:'Home',
+
 components:{Portfolio,Events,Parteners,TopBar,Footer,Contact,Parallax,Parallax2,Clients,UAnimateContainer, UAnimate},
+   data(){
+        return{
+
+        }
+   },
+   computed:{
+      ...mapState([
+         'sliders'
+      ])
+   },
+  
     mounted(){
+        this.loadSliders()
+        Echo.channel('slider_crud').listen('SliderCrud', (data)=> {
+                   this.loadSliders()
+            });
         this.$nextTick(function () {
                     (function($) {
 
@@ -1893,8 +1855,8 @@ components:{Portfolio,Events,Parteners,TopBar,Footer,Contact,Parallax,Parallax2,
                         return this;
                     };
 
-                    })(jQuery);
-            $(document).ready(function(){
+      })(jQuery);
+     $(document).ready(function(){
                
                $(".bxslider").bxSlider({
                 mode:'horizontal',
@@ -1932,9 +1894,26 @@ components:{Portfolio,Events,Parteners,TopBar,Footer,Contact,Parallax,Parallax2,
             
              
           });
-    }
-        )}
+    })
+    },
+    methods:{
+  
+     loadSliders(){
+         this.$store.dispatch('loadSliders')
+     },
+   
+   },
+
+
+
+
+
+
+
+
+
 }
+    
 </script>
 <style scoped>
 .preloader{

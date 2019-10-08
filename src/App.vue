@@ -8,6 +8,7 @@
 <script>
 import './assets/global.css'
 import './assets/animate.css'
+import {mapState} from 'vuex'
 export default {
   name: 'App'
 }
