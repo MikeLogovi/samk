@@ -14,10 +14,10 @@
            <div class="row">
                <div class="col-1"></div>
                <div class="col-4 pt-1">
-                     <img src="/static/images/img11.JPG" class="img-fluid"> 
+                     <img src="/static/images/img11.JPG" class="img-fluid my-img"> 
                </div>
                <div class="col-1"></div>
-               <div class="col-5 text-center">
+               <div class="col-5 text-center parallax2-content">
                    <h2>Let's go now! We have to explore world!</h2>
                    <p>
                        We make great travel.We make best travel.We love travel and travel again
@@ -82,5 +82,91 @@ components:{UAnimateContainer, UAnimate}
     color:white;
     font-size:1.3vw;
 }
+@media only screen and (max-width: 895px){
+     .parallax2-content p{
+         font-size:1.4vw;
+     }
+      .parallax2-content h2{
+         font-size:20px;
+     }
+     .parallax2 h2:before{
+    left:35%;
+}
+}
 
+@media only screen and (max-width: 705px){
+     .parallax2-content p{
+         font-size:1.5vw;
+     }
+      .parallax2-content h2{
+         font-size:25px;
+     }
+     .parallax2 h2:before{
+    left:35%;
+}
+}
+@media only screen and (max-width: 579px){
+     .parallax2-content p{
+         font-size:1.5vw;
+     }
+      .parallax2-content h2{
+         font-size:18px;
+     }
+     .parallax2 h2:before{
+    left:27%;
+}
+}
+@media only screen and (max-width: 494px){
+     .parallax2-content p{
+         font-size:1.8vw;
+     }
+      .parallax2-content h2{
+         font-size:18px;
+         margin-top:10px;
+     }
+     .parallax2 h2:before{
+         left:27%;
+     }
+     .my-img{
+         margin-top:50px;
+     }
+}
+@media only screen and (max-width: 437px){
+     .parallax2-content p{
+         font-size:1.8vw;
+     }
+      .parallax2-content h2{
+         font-size:14px;
+         margin-top:10px;
+     }
+     .parallax2 h2:before{
+         left:20%;
+     }
+     .my-img{
+         margin-top:50px;
+     }
+}
+@media only screen and (max-width: 418px){
+     .parallax2-content p{
+         font-size:1.8vw;
+         display:none;
+     }
+      .parallax2-content h2{
+         font-size:18px;
+         margin-top:35px;
+     }
+     .parallax2 h2:before{
+         left:20%;
+         display:none;
+     }
+     .my-img{
+         margin-top:20px;
+     }
+}
+@media only screen and (max-width: 335px){
+    
+     .my-img{
+         margin-top:29px;
+     }
+}
 </style>

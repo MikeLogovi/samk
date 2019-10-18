@@ -4,6 +4,15 @@ export default{
         backendEndpoint(){
             return 'http://localhost:8000/'
         },
+        scrolling(ancre){
+         var target=$(ancre)
+         $('.full-nav').removeClass("open");
+         if( target.length ) {
+             $("html, body").stop().animate( { scrollTop: target.offset().top }, 1500);
+         }
+       
+     
+},
         fileExtension(filename){
            return filename.split(".").pop()
         },

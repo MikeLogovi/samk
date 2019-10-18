@@ -1,11 +1,10 @@
 <template>
     <section class="price">
-        <section>
             <div class="container-fluid">
                 <div class="container">
                     <div class="row">
                          <div class="col-sm-4">
-                              <div class="card">
+                              <div class="card text-center">
                                   <div class="title">
                                       <i class="fa fa-paper-plan"></i>
                                       <h2>Basic</h2>
@@ -15,10 +14,10 @@
                                   </div>
                                   <div class="option">
                                       <ul>
-                                        <li><i class="fa fa-check">10 GB Space</i></li>
-                                        <li><i class="fa fa-check">3 GB Space</i></li>
-                                        <li><i class="fa fa-check">2 GB Space</i></li>
-                                        <li><i class="fa fa-check">1 GB Space</i></li>
+                                        <li><i class="fa fa-check"></i> 10 GB Space</li>
+                                        <li><i class="fa fa-check"></i>3 GB Space</li>
+                                        <li><i class="fa fa-check"></i>2 GB Space</li>
+                                        <li><i class="fa fa-check"></i>1 GB Space</li>
                                        </ul>
                                   </div>
                                   <a href="#">Enroll now!</a>
@@ -26,7 +25,7 @@
                          </div>
 
                          <div class="col-sm-4">
-                              <div class="card">
+                              <div class="card text-center">
                                   <div class="title">
                                       <i class="fa fa-paper-plan"></i>
                                       <h2>Basic</h2>
@@ -36,10 +35,10 @@
                                   </div>
                                   <div class="option">
                                       <ul>
-                                        <li><i class="fa fa-check">10 GB Space</i></li>
-                                        <li><i class="fa fa-check">3 GB Space</i></li>
-                                        <li><i class="fa fa-check">2 GB Space</i></li>
-                                        <li><i class="fa fa-check">1 GB Space</i></li>
+                                        <li><i class="fa fa-check"></i>10 GB Space</li>
+                                        <li><i class="fa fa-check"></i>3 GB Space</li>
+                                        <li><i class="fa fa-check"></i>2 GB Space</li>
+                                        <li><i class="fa fa-check"></i>1 GB Space</li>
                                        </ul>
                                   </div>
                                   <a href="#">Enroll now!</a>
@@ -47,7 +46,7 @@
                          </div>
 
                           <div class="col-sm-4">
-                              <div class="card">
+                              <div class="card text-center">
                                   <div class="title">
                                       <i class="fa fa-paper-plan"></i>
                                       <h2>Basic</h2>
@@ -57,10 +56,10 @@
                                   </div>
                                   <div class="option">
                                       <ul>
-                                        <li><i class="fa fa-check">10 GB Space</i></li>
-                                        <li><i class="fa fa-check">3 GB Space</i></li>
-                                        <li><i class="fa fa-check">2 GB Space</i></li>
-                                        <li><i class="fa fa-check">1 GB Space</i></li>
+                                        <li><i class="fa fa-check"></i>10 GB Space</li>
+                                        <li><i class="fa fa-check"></i>3 GB Space</li>
+                                        <li><i class="fa fa-check"></i>2 GB Space</li>
+                                        <li><i class="fa fa-check"></i>1 GB Space</li>
                                        </ul>
                                   </div>
                                   <a href="#">Enroll now!</a>
@@ -82,7 +81,7 @@ section{
     width:100%;
     height:100vh;
     box-sizing:border-box;
-
+    padding:140px 0;
 }
 .card{
     position:relative;
@@ -115,7 +114,7 @@ section{
     left:0;
     width:100%;
     height:40%;
-    background:rgba(255,255,255,1);
+    background:rgba(255,255,255,.1);
     z-index:1;
     transform:skewY(-5deg) scale(1.5);
 }
@@ -163,11 +162,12 @@ section{
     list-style:none;
     color:#fff;
     font-size:16px;
+    font-family:'Fredoka One'
 }
 .card a{
     position:relative;
     z-index:2;
-    background:#fff;color:;
+    background:#fff;
     width:150px;height:40px;
     display:block;
     text-align:ceter;
@@ -176,6 +176,8 @@ section{
     font-size:16px;
     cursor:none;
     box-shadow:0 5px 10px;
+    line-height:40px;
+    text-decoration:none;
 }
 .card a:hover{
     text-decoration:none;

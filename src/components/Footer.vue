@@ -12,17 +12,20 @@
                     <div class="col-lg-3 col-md-6 col-xs-12 segment-two">
                          <h2>Useful links</h2>
                          <ul>
-                            <li><i class="icon-ios-arrow-right"></i><a href="#">Home</a></li>
-                            <li><i class="icon-ios-arrow-right"></i><a href="#" >Gallery</a></li>
-                            <li><i class="icon-ios-arrow-right"></i><a href="#">Videos</a></li>
-                            <li><i class="icon-ios-arrow-right"></i><a href="#">Events</a></li>
-                            <li><i class="icon-ios-arrow-right"></i><a href="#portfolio" v-smooth-scroll>Portfolio</a></li>
-                            <li><i class="icon-ios-arrow-right"></i><a href="#">Contact</a></li>
+                            <li><i class="icon-ios-arrow-right"></i><a href="/">Home</a></li>
+                            <li><i class="icon-ios-arrow-right"></i><router-link to="/gallery" >Gallery</router-link></li>
+                            <li><i class="icon-ios-arrow-right"></i><router-link to="/videos">Videos</router-link></li>
+                            <li v-if="showRoute"><i class="icon-ios-arrow-right"></i><a href="#events" v-smooth-scroll>Events</a></li>
+                            <li v-if="showRoute"> <i class="icon-ios-arrow-right"></i><a href="#portfolio" v-smooth-scroll>Portfolio</a></li>
+                             <li v-if="showRoute"><i class="icon-ios-arrow-right"></i><a href="#parteners" v-smooth-scroll>Partners</a></li>
+                             <li v-if="showRoute"><i class="icon-ios-arrow-right"></i><router-link to="/about">About</router-link></li>
+                            <li v-if="showRoute"><i class="icon-ios-arrow-right"></i><a href="#contact" v-smooth-scroll>Contact</a></li>
+
                          </ul>
                     </div>
                     <div class="col-lg-3 col-md-6 col-xs-12 segment-three">
                         <h2>Follow us</h2>
-                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="twitter" ><i class="fa fa-twitter"></i></a>
                         <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
                         <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
                         <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
@@ -43,7 +46,16 @@
 </template>
 <script>
 export default {
-    
+    name:'Footer',
+    computed:{
+         showRoute(){
+            return this.$router.currentRoute.name=="Home"
+        }
+    }
+     ,
+    mounted(){
+
+    }
 }
 </script>
 <style scoped>

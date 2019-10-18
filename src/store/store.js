@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import moment from 'moment'
 Vue.use(Vuex)
 export const store =new Vuex.Store({
     state:{
@@ -7,8 +8,12 @@ export const store =new Vuex.Store({
         comments:{},
         partners:{},
         events:{},
+        upcoming:[],
         videos:{},
-        images:{},
+        imageCategories:{},
+        images:[],
+        projects:[],
+        teams:{},
     },
     mutations:{
         loadSliders(state,data){
@@ -22,12 +27,44 @@ export const store =new Vuex.Store({
         },
         loadEvents(state,data){
             state.events=data
+            var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+            state.events.forEach(event=>{
+                var prm= event.event_date.split('-')
+                var date =moment.utc([parseInt(prm[2]),parseInt(prm[1])-1,parseInt(prm[0])])
+                event.day=date.date()
+                event.month=months[date.month()]
+                var aujourdhui =new Date(moment().format('YYYY-MM-DD'))
+                date=new Date(date.format('YYYY-MM-DD'))
+                
+                if(date<aujourdhui){
+                    event.status='PASSED'
+                }
+                else if(date==aujourdhui){
+                    event.status='TODAY'
+                }
+                else if(date>aujourdhui){
+                    event.status='UPCOMING'
+                }
+                if(event.status=='UPCOMING')
+                  state.upcoming.push(event)
+            })
         },
         loadVideos(state,data){
             state.videos=data
         },
         loadImages(state,data){
-            state.images=data
+            state.imageCategories=data
+            var index=0;
+            data.forEach(category => {
+                 category.portfolio_images.forEach(image => {
+                     image.index=index++
+                     state.images.push(BACKEND_ENDPOINT+'storage/'+image.source)
+                     state.projects.push(image)
+                 });
+            });
+        },
+        loadTeams(state,data){
+            state.teams=data
         },
     },
     actions:{
@@ -69,6 +106,13 @@ export const store =new Vuex.Store({
         loadImages(context){
             axios.get(BACKEND_ENDPOINT+'api/images').then(({data})=>{
                 context.commit('loadImages',data)
+            }).catch(error=>{
+                console.log(error)
+            })
+        },
+        loadTeams(context){
+            axios.get(BACKEND_ENDPOINT+'api/teams').then(({data})=>{
+                context.commit('loadTeams',data)
             }).catch(error=>{
                 console.log(error)
             })

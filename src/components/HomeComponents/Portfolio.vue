@@ -18,41 +18,37 @@
                    <div class="filtering text-center col-sm-12 mb-30">
                            <div class="filter">
                                 <span class="filters" v-bind:class="{ active: currentFilter === 'ALL' }" v-on:click="setFilter('ALL')">ALL</span>
-                                <span class="filters" v-bind:class="{ active: currentFilter === 'ART' }" v-on:click="setFilter('ART')">ART</span>
-                                <span class="filters" v-bind:class="{ active: currentFilter === 'WORKSHOPS' }" v-on:click="setFilter('WORKSHOPS')">WORKSHOPS</span>
-                                <span class="filters" v-bind:class="{ active: currentFilter === 'FUN' }" v-on:click="setFilter('DOODLES')">DOODLES</span>
-                               
-                            </div>
+                                 <span v-for="category in imageCategories" :key="category.id" class="filters" v-bind:class="{ active: currentFilter === category.id }" v-on:click="setFilter(category.id)">{{category.name.toUpperCase()}}</span>
+                     </div>
                    </div>
                    <div class="clearfix"></div>
                    <br> <br> <br> <br>
                 
-         <div class="gallery full-width" >
-           
-                       <div  v-for="project in projects" v-bind:key="project.title">
-                        <div class="col-lg-3 col-md-6 items no-padding"  v-if="currentFilter === project.category || currentFilter === 'ALL'" >
+           <transition name="slide-fade" >
+         <div class="container-fluid gallery full-width " >
+                    <div  v-for="project in projects" v-bind:key="project.title">
+                        <div class="col-lg-3 col-md-6 col-xs-12 items no-padding"  v-if="currentFilter == project.portfolio_category_id|| currentFilter === 'ALL'" >
                             <div class="item-img">
                            
-                                   <img class="image gallery-images" :src="project.image" :key="project.id">
+                                   <img class="image gallery-images" :src="`${backendEndpoint()+'storage/'+project.source}`" :key="project.id">
                         
-                                 <div class="item-img-overlay"  @click="onClick(project.id)">
+                                 <div class="item-img-overlay"  @click="onClick(project.index)">
                                      <div class="overlay-info full-width">
                                          <p>Logo|Branding</p> 
-                                         <h3>Creative Web design</h3>
+                                         <h3>{{project.title}}</h3>
                                          <a  class="popimg" href="javascript:void(0);">
-                                           <span class="icon"  @click="onClick(project.id)">
+                                           <span class="icon"  @click="onClick(project.index)">
                                                <i class='fa fa-search-plus'></i>
                                            </span>
                                          </a>
                                      </div>
                                  </div>
                             </div>
-                            </div>
                           </div>
-                    
-                       <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow> 
-                        
+                      </div>
+                       <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>     
                    </div>
+                </transition>    
                 </div>
            </div>
        </section>
@@ -70,11 +66,20 @@ export default {
     components:{ VueGallerySlideshow, UAnimateContainer, UAnimate,FadeTransition},
      computed:{
         ...mapState([
-            'videos'
+            'imageCategories'
+         
+        ]),
+         ...mapState([
+          
+            'images'
+            
+        ]),
+         ...mapState([
+            'projects'
         ])
     },
     mounted(){
-          //this.loadVideos() 
+          this.loadImages() 
           Echo.channel('portfolio_category_crud').listen('PortfolioCategoryCrud',(data)=>{
             this.loadImages()
         })
@@ -83,32 +88,11 @@ export default {
         })
     },
     data(){
+
         return{
-              images: [
-                '/static/images/img1.JPG',
-                '/static/images/img2.JPG',
-                '/static/images/img3.JPG',
-                '/static/images/img4.JPG',
-                '/static/images/img5.JPG',
-                '/static/images/img6.JPG',
-                '/static/images/img7.JPG',
-                '/static/images/img8.JPG',
-                '/static/images/img9.JPG',
-                '/static/images/img10.JPG',
-                ],
                 index: null,
                 currentFilter: 'ALL',
-                projects: [
-                { title: "Artwork", image: '/static/images/img1.JPG', category: 'ART',id:0},
-                { title: "Charcoal", image: '/static/images/img2.JPG', category: 'ART',id:1 },
-                { title: "Sketching", image: '/static/images/img3.JPG', category: 'DOODLES' ,id:2},
-                { title: "Acrillic", image: '/static/images/img4.JPG', category: 'WORKSHOPS',id:3 },
-                { title: "Pencil", image: '/static/images/img5.JPG', category: 'DOODLES',id:4 },
-                { title: "Pen", image:'/static/images/img6.JPG', category: 'ART',id:5},
-                { title: "Inking", image:'/static/images/img7.JPG', category: 'WORKSHOPS',id:6 },
-                { title: "mlboss", image:'/static/images/img12.JPG', category: 'WORKSHOPS',id:7 },
-                
-                ], 
+              
                 
                 }
    
@@ -120,15 +104,25 @@ export default {
     setFilter(filter) {
       this.currentFilter = filter;
     },
-    loadVideos(){
-            this.$store.dispatch('loadVideos')
+    loadImages(){
+            this.$store.dispatch('loadImages')
      }
   },
   
-
 }
 </script>
 <style scoped>
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
 .portfolio,.container-fluid{
   background-color:#eee;
   margin-right:0;
@@ -151,7 +145,6 @@ export default {
     border-radius:30px;
     cursor:pointer;
     transition:all 0.5s ease-in-out;
-
 }
 .portfolio .section-title{
   font-family:'Fredoka One';
@@ -171,7 +164,6 @@ export default {
    bottom:0;
    left:33.3%;
 }
-
 .portfolio .filtering span:hover{
     color:black;
     background-image:linear-gradient(linear,left top,right top,from(#1a237e),to(#2576fd));
@@ -237,7 +229,6 @@ export default {
     width:100%;
     height:300px;
 }
-
 .portfolio .gallery{
   padding-left:0;
   padding-right:0;
@@ -250,12 +241,10 @@ export default {
   border:10px solid white;
   margin-top:30px;
 }
-
 .portfolio .no-padding{
   padding:0;
 }
 .portfolio .no-padding .item-img{
   margin-top:0;
 }
-
 </style>

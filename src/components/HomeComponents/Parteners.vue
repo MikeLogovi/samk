@@ -41,8 +41,8 @@ export default{
 @import url('../../assets/assetics/owl/assets/owl.carousel.css');
 @import url('../../assets/assetics/owl/assets/owl.theme.default.css');
 .logo-parteners{
-    width:250px!important;
-    height:250px!important;
+    width:200px!important;
+    height:150px!important;
     display:inline-block;
     padding:0 0 0 90px;
 }

@@ -27,80 +27,35 @@
                   </div>
                   <div class="row">
                       <div class="news-active">
-                          <div class="col-md-4">
-                               <div class="latest-news-wrap">
+                           
+                          <div class="col-md-4" v-for="event in events" :key="event.id" >
+
+      
+
+                        
+                               <div class="latest-news-wrap" >
                                    <div class="news-img">
-                                       <img src="/static/images/img9.JPG" class="img-responsive">
+                                       <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="img-responsive">
                                        <div class="deat">
-                                           <span>10</span>
-                                           <span>feb</span>
+                                           <span>{{event.day}}</span>
+                                           <span>{{event.month}}</span>
+                                           
                                         </div>
                                     </div>
                                     <div class="news-content">
-                                        <h2>Event1</h2>
+                                   
+                                        <h4 >{{event.name.replace(/^./, event.name[0].toUpperCase())}}</h4>
                                         
                                         <p>
-                                            Who is such a man as does
-                                             not want to get success
-                                             in their life is not meant for work only
+                                            <strong class="price"> {{event.price}} DA</strong> <br><br>
+                                           {{event.description |  truncate(100)}}
                                         </p><br>
-                                        <a href="#">Read more</a>
+                                        <a href="#" data-toggle="modal" :data-target="`#myModal${event.id}`">Read more</a>
+                                 
                                     </div>
                                </div>
+              
                           </div>
-
-                           <div class="col-md-4">
-                               <div class="latest-news-wrap">
-                                   <div class="news-img">
-                                       <img src="/static/images/img10.JPG" class="img-responsive">
-                                       <div class="deat">
-                                           <span>10</span>
-                                           <span>feb</span>
-                                        </div>
-                                    </div>
-                                    <div class="news-content">
-                                        <i class="fa fa-facebook"></i>
-                                        <i class="fa fa-twitter"></i>
-                                        <i class="fa fa-linkedin"></i>
-                                        <i class="fa fa-youtube"></i>
-                                        <i class="fa fa-whatsapp"></i>
-                                        
-                                        <p>
-                                            Who is such a man as does
-                                             not want to get success
-                                             in their life is not meant for work only
-                                        </p><br>
-                                        <a href="">Read more</a>
-                                    </div>
-                               </div>
-                          </div>
-
-                         <div class="col-md-4">
-                               <div class="latest-news-wrap">
-                                   <div class="news-img">
-                                       <img src="/static/images/img1.JPG" class="img-responsive">
-                                       <div class="deat">
-                                           <span>10</span>
-                                           <span>feb</span>
-                                        </div>
-                                    </div>
-                                    <div class="news-content">
-                                        <i class="fa fa-facebook"></i>
-                                        <i class="fa fa-twitter"></i>
-                                        <i class="fa fa-linkedin"></i>
-                                        <i class="fa fa-youtube"></i>
-                                        <i class="fa fa-whatsapp"></i>
-                                        
-                                        <p>
-                                            Who is such a man as does
-                                             not want to get success
-                                             in their life is not meant for work only
-                                        </p><br>
-                                        <a href="">Read more</a>
-                                    </div>
-                               </div>
-                          </div>
-
                       </div>
                   </div>
             </div>
@@ -110,17 +65,20 @@
 </template>
 <script>
 import {UAnimateContainer, UAnimate} from 'vue-wow'
+import Price from './Price'
 import {mapState} from 'vuex'
 export default {
     name:'Events',
     components:{UAnimateContainer, UAnimate},
     computed:{
         ...mapState([
+            'upcoming',
             'events'
         ])
     },
     mounted(){
-          //this.loadEvents() 
+         console.log(this.$router.currentRoute)
+          this.loadEvents() 
           Echo.channel('event_crud').listen('EventCrud',(data)=>{
             this.loadEvents()
         })
@@ -136,12 +94,16 @@ export default {
 .section_title .section_subtitle{
     color:#ff5252!important;
 }
-.section_title h2{
+h4{
+    color:#34af23;
+}
+.section_title h2,.price{
     color:transparent;
     background-image:linear-gradient(25deg,#A64EAE,#4683B7) ;
     background-clip:text;
     -webkit-background-clip:text;
 }
+
   .events{
       margin-top:40px;
       margin-bottom:40px;

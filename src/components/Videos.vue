@@ -3,31 +3,29 @@
     <TopBar/>
     <br/><br/><br>
     <section id="videos" class="videos">
+      <br>
          <div class="container text-center">
               <h1 class="section-title">Videos</h1>
          </div>
          <div class="container marketing">
-    
+             <div class="row featurette" v-for="video in videos" :key="video.id">
+               <br>
+               <hr>
+                  <div class="col-md-7">
+                    <h2 class="featurette-heading">{{video.title}}</h2>
+                    <p class="lead">{{video.description}}</p>
+                  </div>
+                  <div class="col-md-5 ">
 
-
-    
-
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">First video</h2>
-        <p class="lead">This is the first video.</p>
-      </div>
-       <div class="col-md-5 ">
-
-                        <div class="video_area">
+                        <div class="video_area" :style="`background:url(${backendEndpoint()+'storage/'+video.brand_image}) no-repeat center center`">
                                 
                              <div class="video_button">
-                                 <a href="" data-toggle="modal" data-target="#myModal">
-                                     <span class='profilepicture'></span>
+                                 <a href="" data-toggle="modal" :data-target="`#myModal${video.id}`">
+                                     <span class='profilepicture' ></span>
                                  </a>
                              </div>
                         </div>
-                        <div class="modal fade"  id="myModal" tabindex="1" role="dialog">
+                        <div class="modal fade"  :id="`myModal${video.id}`" :tabindex="video.id" role="dialog">
                         <div class="modal-dialog modal-lg" role="document">
                               <div class="modal-content">
                                    <div class='modal-header raisa-video-btn'>
@@ -37,14 +35,16 @@
                                   </div>
                                   <div class="modal-body">
                                         <div class="video-container">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/bvVb5I2dhIM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            <iframe width="560" height="315" :src="video.source" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         </div>
                                   </div>
                               </div>
                         </div>
                    </div>
-        </div>
-        </div>
+                  </div>
+                  <hr class="featurette-divider">
+        </div> 
+             
     </div>
 
     <hr class="featurette-divider">
@@ -65,7 +65,7 @@ export default {
         ])
     },
     mounted(){
-          //this.loadVideos() 
+          this.loadVideos() 
           Echo.channel('video_crud').listen('VideoCrud',(data)=>{
             this.loadVideos()
         })
@@ -185,21 +185,9 @@ export default {
     position:relative;
     width:500px;
     height:300px;
-  
-    background:url(../../static/images/img5.jpg) no-repeat center center;
     background-size:cover;
 }
-.author-video-section{
-    
-    border-radius:10px;
-    background:url(../../static/images/img5.jpg) no-repeat center center;
-    position:absolute;
-    left:0;
-    top:0;
-    height:500px;
-    width:50%;
-    background-position:center;
-}
+
 .video-right-static{
     position: static;
 }

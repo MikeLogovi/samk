@@ -4,7 +4,7 @@ window.$=require('jquery')
 window.JQuery=require('jquery')
 import Vue from 'vue'
 import App from './App'
-import Vuetify from 'vuetify'
+
 import router from './router'
 import vueSmoothScroll from 'vue2-smooth-scroll'
 import 'viewerjs/dist/viewer.css'
@@ -18,6 +18,13 @@ import {store} from './store/store'
 import VueWow from 'vue-wow'
 import mixin from './mixin/mixin'
 import {mapState} from 'vuex'
+import Promise from "promise-polyfill";
+var VueTruncate = require('vue-truncate-filter')
+Vue.use(VueTruncate)
+// To add to window
+if (!window.Promise) {
+  window.Promise = Promise;
+}
 window.BACKEND_ENDPOINT='http://localhost:8000/'
 window.axios=axios
 window.Echo = new Echo({
@@ -33,7 +40,7 @@ Vue.use(Viewer)
 Vue.use(VueWow)
 Vue.use(vueSmoothScroll)
 Vue.config.productionTip = false
-Vue.use(Vuetify)
+
 window.mapStated=mapState
 /* eslint-disable no-new */
 Vue.mixin(mixin)

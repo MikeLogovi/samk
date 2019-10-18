@@ -6,129 +6,28 @@
         <div class="container team-content">
             
             <carousel :autoplay="true" :responsive="{0:{item:1,nav:false},600:{item:2,nav:true},959:{item:3,nav:true}}">
-                    <div class=" col-sm-12">
+                    <div class=" col-sm-12" v-for="team in teams" :key="team.id">
                       <div class="team-block">
                           <div class="team-man">
-                              <img src="/static/images/img23.jpg">
+                              <img :src="`${backendEndpoint()+'storage/'+team.source}`">
                          </div>
                          <div class="team-description text-center">
                              <div class="title">
-                                 <h3>Samuel KODJO AGODOA</h3>
-                                 <span>GHANA</span>
+                                 <h3>{{team.name}}</h3>
+                                 <span>{{team.country}}</span>
                              </div>
                              <p>
-                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus obcaecati numquam mollitia nostrum facere consectetur facilis soluta quam. Aliquam nulla obcaecati quos nam quis, nesciunt modi quo ratione. In, explicabo.
+                            {{team.description}}                           
                             </p>
                             <div class="team-social-network">
-                                 <a href=""><i class="fa fa-facebook"></i></a>
-                                 <a href=""><i class="fa fa-twitter"></i></a>
-                                 <a href=""><i class="fa fa-linkedin"></i></a>
-                                 <a href=""><i class="fa fa-youtube"></i></a>
-          
+                                <span v-for="socialite in team.socialites" :key="socialite.id" >
+                                 <a :href="socialite.url" target="_blank" v-if="socialite.icon"><i  :class="`fa fa-${socialite.icon}`"></i></a>
+                                </span>
                             </div> 
                          </div>
                       </div>
-                  </div>
-                   
-                  <div class=" col-sm-12">
-                      <div class="team-block">
-                          <div class="team-man">
-                           <img src="/static/images/img23.jpg">
-                         </div>
-                         <div class="team-description text-center">
-                             <div class="title">
-                                 <h3>Samuel KODJO AWEDEAH</h3>
-                                 <span>GHANA</span>
-                             </div>
-                             <p>
-                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus obcaecati numquam mollitia nostrum facere consectetur facilis soluta quam. Aliquam nulla obcaecati quos nam quis, nesciunt modi quo ratione. In, explicabo.
-                            </p>
-                            <div class="team-social-network">
-                                 <a href=""><i class="fa fa-facebook"></i></a>
-                                 <a href=""><i class="fa fa-twitter"></i></a>
-                                 <a href=""><i class="fa fa-linkedin"></i></a>
-                                 <a href=""><i class="fa fa-youtube"></i></a>
-          
-                            </div> 
-                         </div>
-                      </div>
-                 </div>
-
-                 <div class=" col-sm-12">
-                      <div class="team-block">
-                          <div class="team-man">
-                           <img src="/static/images/img23.jpg">
-                         </div>
-                         <div class="team-description text-center">
-                             <div class="title">
-                                 <h3>Samuel KODJO AWEDEAH</h3>
-                                 <span>GHANA</span>
-                             </div>
-                             <p>
-                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus obcaecati numquam mollitia nostrum facere consectetur facilis soluta quam. Aliquam nulla obcaecati quos nam quis, nesciunt modi quo ratione. In, explicabo.
-                            </p>
-                            <div class="team-social-network">
-                                 <a href=""><i class="fa fa-facebook"></i></a>
-                                 <a href=""><i class="fa fa-twitter"></i></a>
-                                 <a href=""><i class="fa fa-linkedin"></i></a>
-                                 <a href=""><i class="fa fa-youtube"></i></a>
-          
-                            </div> 
-                         </div>
-                      </div>
-                 </div>
-
-                 <div class=" col-sm-12">
-                      <div class="team-block">
-                          <div class="team-man">
-                           <img src="/static/images/img23.jpg">
-                         </div>
-                         <div class="team-description text-center">
-                             <div class="title">
-                                 <h3>Samuel KODJO AWEDEAH</h3>
-                                 <span>GHANA</span>
-                             </div>
-                             <p>
-                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus obcaecati numquam mollitia nostrum facere consectetur facilis soluta quam. Aliquam nulla obcaecati quos nam quis, nesciunt modi quo ratione. In, explicabo.
-                            </p>
-                            <div class="team-social-network">
-                                 <a href=""><i class="fa fa-facebook"></i></a>
-                                 <a href=""><i class="fa fa-twitter"></i></a>
-                                 <a href=""><i class="fa fa-linkedin"></i></a>
-                                 <a href=""><i class="fa fa-youtube"></i></a>
-          
-                            </div> 
-                         </div>
-                      </div>
-                 </div>
-
-                 <div class=" col-sm-12">
-                      <div class="team-block">
-                          <div class="team-man">
-                           <img src="/static/images/img23.jpg">
-                         </div>
-                         <div class="team-description text-center">
-                             <div class="title">
-                                 <h3>Samuel KODJO AWEDEAH</h3>
-                                 <span>GHANA</span>
-                             </div>
-                             <p>
-                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus obcaecati numquam mollitia nostrum facere consectetur facilis soluta quam. Aliquam nulla obcaecati quos nam quis, nesciunt modi quo ratione. In, explicabo.
-                            </p>
-                            <div class="team-social-network">
-                                 <a href=""><i class="fa fa-facebook"></i></a>
-                                 <a href=""><i class="fa fa-twitter"></i></a>
-                                 <a href=""><i class="fa fa-linkedin"></i></a>
-                                 <a href=""><i class="fa fa-youtube"></i></a>
-          
-                            </div> 
-                         </div>
-                      </div>
-                 </div>
-
-
+              </div>
                  
-
             </carousel>
             </div>
         
@@ -136,8 +35,25 @@
 </template>
 <script>
 import carousel from 'vue-owl-carousel'
+import {mapState} from 'vuex'
 export default {
     components:{carousel},
+    computed:{
+        ...mapState([
+            'teams',
+        ])
+    },
+    mounted(){
+        this.loadTeams()
+        Echo.channel('team_crud').listen('TeamCrud',res=>{
+            this.loadTeams()
+        })
+    },
+    methods:{
+        loadTeams(){
+            this.$store.dispatch('loadTeams')
+        }
+    }
 }
 </script>
 <style scoped>
