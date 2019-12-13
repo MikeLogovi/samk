@@ -85,7 +85,7 @@
                             <div class="vidContent">
                                 
   
-                                <h1 class="text-left animated fadeInLeft">AKWAABA TO SAMK K TRAVEL & TOUR</h1>
+                                <h1 class="text-left animated fadeInLeft">AKWAABA !!! SAMK K TRAVEL & TOUR</h1>
     
                                 <p class="text-left">
                                    Stay calm, relax and enjoy exploring our awesome gallery,videos and events.
@@ -101,7 +101,7 @@
                                     <li><a href=""><i class="fa fa-twitter"></i></a></li>
                     </ul>
                 </li>
-                
+
                 <li>
                     <div class="bg-video">
 
