@@ -5,20 +5,25 @@
         </div>
    
         <div class="container">
-                <carousel :autoplay="true" :responsive="{0:{item:1,nav:false}, 600:{item:2,nav:true},959:{item:3,nav:true}}">
+               <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
+                        <slide  v-for="partner in partners" :key="partner.id">
+                           <img  :src="`${backendEndpoint()}storage/${partner.source}`" class="logo-parteners " alt=""> 
+                        </slide>
+                </carousel>
+                <!--<carousel :autoplay="true" :responsive="{0:{item:1,nav:false}, 600:{item:2,nav:true},959:{item:3,nav:true}}">
                      <img  v-for="partner in partners" :key="partner.id" :src="`${backendEndpoint()}storage/${partner.source}`" class="logo-parteners " alt=""> 
-               </carousel>
+               </carousel>-->
          </div>
             
        
         </section>
 </template>
 <script>
-import carousel from 'vue-owl-carousel'
+import {Carousel,Slide} from 'vue-carousel'
 import {mapState} from 'vuex'
 export default{
    name:'parteners',
-   components:{carousel},
+   components:{Carousel,Slide},
    computed:{
        ...mapState([
            'partners'

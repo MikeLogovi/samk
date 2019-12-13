@@ -19,9 +19,7 @@ import VueWow from 'vue-wow'
 import mixin from './mixin/mixin'
 import {mapState} from 'vuex'
 import Promise from "promise-polyfill";
-import VueCarousel from 'vue-carousel';
 
-Vue.use(VueCarousel);
 var VueTruncate = require('vue-truncate-filter')
 Vue.use(VueTruncate)
 // To add to window

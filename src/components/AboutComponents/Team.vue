@@ -4,13 +4,9 @@
              <h1 class="section-title">Our Awesome Team</h1>
         </div>
         <div class="container team-content">
-            <!-- <carousel :per-page="1" :navigate-to="someLocalProperty" :mouse-drag="false">
+            <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
                 <slide v-for="team in teams" :key="team.id">
-                Slide 1 Content
-                </slide>
-             </carousel>-->
-            <carousel :autoplay="true" :responsive="{0:{item:1,nav:false},600:{item:2,nav:true},959:{item:3,nav:true}}">
-                    <div class=" col-sm-12" v-for="team in teams" :key="team.id">
+                      <div class=" col-sm-12">
                       <div class="team-block">
                           <div class="team-man">
                               <img :src="`${backendEndpoint()+'storage/'+team.source}`">
@@ -31,17 +27,18 @@
                          </div>
                       </div>
               </div>
-                 
-            </carousel>
+                </slide>
+             </carousel>
+            
             </div>
         
     </section>
 </template>
 <script>
-import carousel from 'vue-owl-carousel'
+import { Carousel, Slide } from 'vue-carousel';
 import {mapState} from 'vuex'
 export default {
-    components:{carousel},
+    components:{Carousel,Slide},
     computed:{
         ...mapState([
             'teams',
@@ -67,13 +64,13 @@ export default {
 .team-man{
     position:relative;
     left:50%;
-    margin-left:-50px;
+    margin-left:-75px;
     top:50px;
     overflow:visible!important;
     min-width:100px;
     min-height:100px;
-    width:100px;
-    height:100px;
+    width:150px;
+    height:150px;
     border:10px solid #00D320;
     border-radius:50%;
 }

@@ -11,8 +11,9 @@
     <hr class="featurette-divider">
 
     <div class="row featurette ajust-content">
-      <div class="col-md-7">
+      <div class="col-md-7 push_down">
         <h2 class="featurette-heading">ABOUT SAM K TRAVEL & TOUR</h2>
+        
         <p >Sam K T&T is a Ghanian company founded in 2017 basically to promote the tourism
           industry in Africa and the world at large
         </p>
@@ -24,19 +25,19 @@
 
     <hr class="featurette-divider">
       <div class="row featurette ajust-content">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">Our vision</h2>
+      <div class="col-md-7 push_down">
+        <h2 class="featurette-heading">OUR VISION</h2>
         <p >To be the largest tourism company in Africa and beyond</p>
       </div>
       <div class="col-md-5 ">
-         <img class="left-img" src="/static/images/vision.jpg" width="300" height="300"/>
+         <img class="left-img" src="/static/images/vision.jpg" width="300" height="260"/>
       </div>
     </div>
     <hr class="featurette-divider">
 
     <div class="row featurette ">
       <div class="col-md-7 order-md-2 ajust-content" style="margin-left:-100px">
-        <h2 class="featurette-heading">Our Missions</h2>
+        <h2 class="featurette-heading">OUR MISSIONS</h2>
         <p >
              <ul>
                  <li>
@@ -60,14 +61,14 @@
         </p>
       </div>
       <div class="col-md-5 order-md-1">
-          <img src="/static/images/mission.jpg" width="300" height="300"/>
+          <img src="/static/images/mission.jpg" width="300" height="260"/>
       </div>
     </div>
 
     <hr class="featurette-divider">
     <div class="row featurette ajust-content">
       <div class="col-md-7"  style="margin-left:-40px">
-        <h2 class="featurette-heading">Our Achievements</h2>
+        <h2 class="featurette-heading">OUR ACHIEVEMENTS</h2>
         <p>
           The company has embarked on amazing and exciting tours.Remarkable visits include
           Cap Carbon and the fine beaches in Bejaia-Algeria,the beautiful animal park in Jijel
@@ -85,20 +86,20 @@
     </div>
     <hr class="featurette-divider">
     <div class="row featurette">
-      <div class="col-md-7 order-md-2 ajust-content">
-        <h2 class="featurette-heading">THE CEO</h2>
-        <p >
-             SAMUEL KODJO AGODOA
-        </p>
-        <blockquote>
-             Passions and dreams are like time,nothing can't stop them.
-             And it will be like that still there are people to give sense
-             to the word freedom.
-        </blockquote>
-      </div>
-      <div class="col-md-5 order-md-1">
-          <img src="/static/images/ceo.jpg" width="300" height="300" style="border-radius:50%"/>
-      </div>
+      <div class="col-md-7 order-md-2" style="margin-left:-100px">
+          <h2 class="featurette-heading" style="margin-left:5px">THE CEO</h2>
+          <p >
+              SAMUEL KODJO AGODOA
+          </p>
+          <blockquote>
+              Passions and dreams are like time,nothing can't stop them.
+              And it will be like that still there are people to give sense
+              to the word freedom.
+          </blockquote>
+     </div>
+     <div class="col-md-5 order-md-1">
+          <img src="/static/images/ceo.jpg" width="225" height="225" style="border-radius:50%"/>
+     </div>
     </div>
 
     <hr class="featurette-divider">
@@ -151,6 +152,7 @@ export default {
 
 /* Thin out the marketing headings */
 .featurette-heading {
+  font-size:1.75em;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -.05rem;
@@ -164,12 +166,12 @@ export default {
   /* Bump up size of carousel content */
   .carousel-caption p {
     margin-bottom: 1.25rem;
-    font-size: 1.25rem;
+    font-size: 0.75rem;
     line-height: 1.4;
   }
 
   .featurette-heading {
-    font-size: 50px;
+    
   }
 }
 
@@ -212,6 +214,9 @@ export default {
 .featurette img{
   margin-top:-1.7em;
   margin-right:40px;
+}
+.push_down{
+  margin-top:50px;
 }
 blockquote{
   color:#00D320;

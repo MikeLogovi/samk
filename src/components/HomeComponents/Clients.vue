@@ -17,6 +17,24 @@
         <div class="container">
             
                 <div  id="testimonial-slider">
+                    <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
+                        <slide v-for="comment in comments" :key="comment.id">
+                            <div class="testimonial" >
+                                    <span class="icon fa fa-quote-left"></span>
+                                    <p class="description">
+                                        {{comment.comment}}
+                                    </p>
+                                    <div class="testimonial-content">
+                                        <div class='pic'>
+                                            <img :src="`${backendEndpoint()}storage/${comment.source}`" alt="">
+                                        </div>
+                                        <h1 class="title">coucou</h1>
+                                        <span class="post">{{comment.author_function}}</span>
+                                    </div>
+                                </div>
+                        </slide>
+                    </carousel>
+                <!--
                   <carousel :autoplay="true" :responsive="{0:{items:1,nav:true},600:{items:2,nav:true},900:{items:3,nav:true}}">
                        
 
@@ -36,7 +54,7 @@
                         </div>
                     
                                      
-                   </carousel>
+                   </carousel>-->
                  </div>
             </div>
          
@@ -45,11 +63,11 @@
     </u-animate-container>
 </template>
 <script>
-import carousel from 'vue-owl-carousel'
+import {Carousel,Slide} from 'vue-carousel'
 import {UAnimateContainer, UAnimate} from 'vue-wow'
 import {mapState} from 'vuex'
 export default {
-    components:{carousel,UAnimateContainer, UAnimate},
+    components:{Carousel,Slide,UAnimateContainer, UAnimate},
     computed:{
         ...mapState([
             'comments'
