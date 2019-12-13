@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Gallery from '@/components/Gallery'
 import About from '@/components/About'
 import Videos from '@/components/Videos'
+
 Vue.use(Router)
 
 export default new Router({

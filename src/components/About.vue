@@ -5,65 +5,99 @@
 
 <main role="main">
   <div class="container marketing">
-    
-
 
     <!-- START THE FEATURETTES -->
 
     <hr class="featurette-divider">
 
-    <div class="row featurette">
+    <div class="row featurette ajust-content">
       <div class="col-md-7">
         <h2 class="featurette-heading">ABOUT SAM K TRAVEL & TOUR</h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p >Sam K T&T is a Ghanian company founded in 2017 basically to promote the tourism
+          industry in Africa and the world at large
+        </p>
       </div>
-      <div class="col-md-5">
-          <img src="/static/logo3.png" width="500" height="500"/>
+      <div class="col-md-5 left-img">
+          <img class="left-img" src="/static/logo3.png" width="300" height="300"/>
       </div>
     </div>
 
     <hr class="featurette-divider">
-      <div class="row featurette">
+      <div class="row featurette ajust-content">
       <div class="col-md-7">
         <h2 class="featurette-heading">Our vision</h2>
-        <p class="lead ">Our vision is to build the biggest tourism campagny in West Africa and beyond</p>
+        <p >To be the largest tourism company in Africa and beyond</p>
       </div>
-      <div class="col-md-5">
-         <img src="/static/images/vision.jpg" width="500" height="500"/>
+      <div class="col-md-5 ">
+         <img class="left-img" src="/static/images/vision.jpg" width="300" height="300"/>
       </div>
     </div>
     <hr class="featurette-divider">
 
-    <div class="row featurette">
-      <div class="col-md-7 order-md-2 ajust-content" >
+    <div class="row featurette ">
+      <div class="col-md-7 order-md-2 ajust-content" style="margin-left:-100px">
         <h2 class="featurette-heading">Our Missions</h2>
-        <p class="lead">
+        <p >
              <ul>
                  <li>
-                   Promoting African tourism through development 
-                   of the sites and implementation of a more secured safety measures
+                   We intend to promote tourism in African countries by exposing it's culture,as well as 
+                   the amazing and awesome sites of the continent to the world
                  </li>
                 
-                 <li>Also exposing the Awesome touristes in Africa by making it more Attractive and fun</li>
+                 <li>
+                   We are also passionate and committed to developing and implementing safety measure to ensure
+                   the maximum security of our Dear clients whenever/wherever they travel with us 
+                 </li>
+                 <li>
+                   We believe that tourism is a way of life ,therefore everyone should develop the interest to travel
+                   in order to,know,explore,and learn about different surroundings,cultures,and traditions..This is not limites to a particular 
+                   class of persons hence we intend to make the industry more attractive,educative,fun and above all economical 
+                 </li>
+                 <li>
+                   Create Job opportunities as a means of contributing to the Continent's development
+                 </li>
              </ul>
         </p>
       </div>
       <div class="col-md-5 order-md-1">
-          <img src="/static/images/mission.jpg" width="500" height="500"/>
+          <img src="/static/images/mission.jpg" width="300" height="300"/>
       </div>
     </div>
 
     <hr class="featurette-divider">
-
+    <div class="row featurette ajust-content">
+      <div class="col-md-7"  style="margin-left:-40px">
+        <h2 class="featurette-heading">Our Achievements</h2>
+        <p>
+          The company has embarked on amazing and exciting tours.Remarkable visits include
+          Cap Carbon and the fine beaches in Bejaia-Algeria,the beautiful animal park in Jijel
+          not forgetting it's fine beaches.A desert safari to the southern part of Algeria(Béchar),a trip
+          to the island at Tigzirt, a stress-relief visit to Tipaza and the almighty tour to Oran,Tlemcen and Batna.
+          Hospitality is number one.The company partners with well known Hotels and restaurants in providing
+          the best services for its clients.Fun and entertainment has never been a miss.Sam K has well trained 
+          workers both skilled and not skilled to help brighten your trips.The company never disapoints as it promises great 
+          tours in the years ahead,as well as other parts of the world
+        </p>
+      </div>
+      <div class="col-md-5" style="margin-left:40px">
+          <img src="/static/logo3.png" width="300" height="300"/>
+      </div>
+    </div>
+    <hr class="featurette-divider">
     <div class="row featurette">
       <div class="col-md-7 order-md-2 ajust-content">
         <h2 class="featurette-heading">THE CEO</h2>
-        <p class="lead">
+        <p >
              SAMUEL KODJO AGODOA
         </p>
+        <blockquote>
+             Passions and dreams are like time,nothing can't stop them.
+             And it will be like that still there are people to give sense
+             to the word freedom.
+        </blockquote>
       </div>
       <div class="col-md-5 order-md-1">
-          <img src="/static/images/ceo.jpg" width="500" height="500" style="border-radius:50%"/>
+          <img src="/static/images/ceo.jpg" width="300" height="300" style="border-radius:50%"/>
       </div>
     </div>
 
@@ -108,7 +142,9 @@ export default {
 
 /* Featurettes
 ------------------------- */
-
+.featurette{
+  margin:0 -110px 0 -20px;
+}
 .featurette-divider {
   margin: 5rem 0; /* Space out the Bootstrap <hr> more */
 }
@@ -151,8 +187,11 @@ export default {
   background-image:linear-gradient(25deg,#A64EAE,#4683B7);;
 }
 .ajust-content{
-  padding-left:170px;
+  padding-left:50px;
+   text-align:justify;
+  text-justify:inter-word;
 }
+
 .lead{
   font-size:1.5em;
   font-family:'Roboto Condensed';
@@ -167,4 +206,17 @@ export default {
   letter-spacing:0.025rem;
   padding-bottom:15px;
 }
+.featurette h2{
+  margin-top:-0.8em;
+}
+.featurette img{
+  margin-top:-1.7em;
+  margin-right:40px;
+}
+blockquote{
+  color:#00D320;
+}
+/*.left-img{
+  margin-right:2px;
+}*/
 </style>

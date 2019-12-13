@@ -4,7 +4,11 @@
              <h1 class="section-title">Our Awesome Team</h1>
         </div>
         <div class="container team-content">
-            
+            <!-- <carousel :per-page="1" :navigate-to="someLocalProperty" :mouse-drag="false">
+                <slide v-for="team in teams" :key="team.id">
+                Slide 1 Content
+                </slide>
+             </carousel>-->
             <carousel :autoplay="true" :responsive="{0:{item:1,nav:false},600:{item:2,nav:true},959:{item:3,nav:true}}">
                     <div class=" col-sm-12" v-for="team in teams" :key="team.id">
                       <div class="team-block">

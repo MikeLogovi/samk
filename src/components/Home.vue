@@ -49,8 +49,37 @@
                 <li>
                     <div class="bg-video">
 
-                        <img src="/static/images/img8.JPG">
+                        <img src="/static/images/img8.jpg">
                         
+                        <div class="container">
+                            <div class="vidContent">
+                                
+  
+                                <h1 class="text-left animated fadeInLeft">WELCOME TO SAM K TRAVEL & TOUR</h1>
+    
+                                <p class="text-left">
+                                    We love travelling.<br>We love visiting place in Algeria and so many places all around the world.<br/>Stay here with us,see our awesome gallery,videos and events!
+                                </p>
+                                <a href="" id="vidBtn">GET STARTED</a>
+                            </div>
+                        </div>
+                    </div>
+                     <ul class="social-icons list-inline">
+                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href=""><i class="fa fa-youtube"></i></a></li>
+                                    <li><a href=""><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <div class="bg-video">
+
+                        <video autoplay>
+                           <source src="/static/videos/video1.mp4" type="video/mp4">
+                        </video>
                         <div class="container">
                             <div class="vidContent">
                                 
