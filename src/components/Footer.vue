@@ -6,7 +6,7 @@
                     <div class="col-lg-3 col-md-6 col-xs-12 segment-one">
                         <h3>SAM K TRAVEL & TOUR</h3>
                         <p>
-                              We love travelling.<br>We love visiting place in Algeria and so many places all around the world.<br/>Stay here with us,see our awesome gallery,videos and events!
+                              We are passionate about travelling and exploring new places.<br>Why don't you try Sam K T&T and have amazing experiences and stories to tell.
                         </p>
                     </div>
                     <div class="col-lg-3 col-md-6 col-xs-12 segment-two">
@@ -32,7 +32,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-xs-12 segment-four">
                         <h2>Our newsletter</h2>
-                        <p>In order to inform you in time for all our future trips,traveelling,SAM K Travel &Tour would like you to subscibe to our newsletter</p>
+                        <p>In order to be informed in time converning all our future trips and travels Sam K TRAVEL AND Tour would like you to subscribe to our newsletter</p>
                         <form action="" method="post">
                             <input type="email" name="email" placeholder="Your email adress">
                             <input type="submit" value="subscribe">

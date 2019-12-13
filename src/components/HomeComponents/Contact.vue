@@ -4,14 +4,10 @@
             <h1 class="section-title">Contact</h1>
  </div>
 
-
-		
-
-
 			<div class="gtco-container">
 				<div class="row gtco-heading">
 					<div class="col-md-12 text-center">
-						<p>For every request,just contact us.We will be proud of responding and dealing with you</p>
+						<p>We are ready and glad to attend to all your needs at anytime</p>
 					</div>
 				
 				</div>
@@ -38,15 +34,13 @@
 					<div class="col-md-5 col-md-push-1">
 						<div class="gtco-contact-info">
 							<h3>Our Address</h3>
-							<p>Here are all our contact.You can call,mail us or let a message in our administration directly.Feel free in SAM K'S HOUSE.</p>
-							
-								<i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;198 West 21th Street, Suite 721 New York NY 10016<br/>
-
-
-								<i class="fa fa-phone"></i>&nbsp;&nbsp;<a href="tel://1234567890">1235 2355 980</a><br>
-								<i class="fa fa-envelope"></i>&nbsp;&nbsp;<a href="#">samk@gmail.com</a>
-								
-							
+							<p>For more information and enquires,contact us or leave a message for us through the following useful links below.Feel free,SAM K is here for you.</p>
+								<i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;Tizi.Ouzou, Tamda<br/>
+								<i class="fa fa-phone"></i>&nbsp;&nbsp;<a href="tel://+213 542470511">+213 542 47 05 11</a><br>
+                <i class="fa fa-phone"></i>&nbsp;&nbsp;<a href="tel://+213 542241352">+213 542 24 13 52</a><br>
+                <i class="fa fa-phone"></i>&nbsp;&nbsp;<a href="tel://+213 555272652">+213 555 27 26 52</a><br>
+                <i class="fa fa-phone"></i>&nbsp;&nbsp;<a href="tel://+213 541298012">+213 541 29 80 12</a><br>
+								<i class="fa fa-envelope"></i>&nbsp;&nbsp;<a href="#">imagineyourimpact20@gmail.com</a>
 						</div>
 					</div>
 				</div>

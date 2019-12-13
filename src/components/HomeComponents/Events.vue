@@ -27,13 +27,10 @@
                   </div>
                   <div class="row">
                       <div class="news-active">
-                           
-                          <div class="col-md-4" v-for="event in events" :key="event.id" >
-
-      
-
-                        
-                               <div class="latest-news-wrap" >
+                          <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
+                            <slide  v-for="event in events" :key="event.id">
+                               <div class="col-md-12"  >
+                                 <div class="latest-news-wrap" >
                                    <div class="news-img">
                                        <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="img-responsive">
                                        <div class="deat">
@@ -56,6 +53,9 @@
                                </div>
               
                           </div>
+                            </slide>
+                         </carousel>
+                          
                       </div>
                   </div>
             </div>
@@ -65,11 +65,12 @@
 </template>
 <script>
 import {UAnimateContainer, UAnimate} from 'vue-wow'
+import {Carousel,Slide} from 'vue-carousel'
 import Price from './Price'
 import {mapState} from 'vuex'
 export default {
     name:'Events',
-    components:{UAnimateContainer, UAnimate},
+    components:{UAnimateContainer, UAnimate,Carousel,Slide},
     computed:{
         ...mapState([
             'upcoming',

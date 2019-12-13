@@ -14,11 +14,11 @@
               <div class="row">
                    <div class="col-1"></div>
                    <div class="col-5">
-                       <h1>Making &nbsp;You Explorings</h1>
+                       <h1>IL EST &nbsp;OU</h1>
                    </div>
                    <div class="col-2"></div>
                    <div class="col-4">
-                       <h1>Travelling is living!!</h1>
+                       <h1>TO LIVE IS TO TRAVEL!!</h1>
                    </div>
               </div>
           </div>
