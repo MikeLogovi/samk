@@ -46,16 +46,12 @@
             <TopBar/>
             <br><br><br><br>
             <ul class="bxslider bx-wrapper" ref="bxsliding">
-                <li>
+                <li v-for="slide in slides" :key="slide.id">
                     <div class="bg-video">
-
-                        <img src="/static/images/img8.jpg">
-                        
+                        <img :src="slide.src" class="slider_image"> 
                         <div class="container">
                             <div class="vidContent">
-                                
-  
-                                <h1 class="text-left animated fadeInLeft">WELCOME TO SAM K TRAVEL & TOUR</h1>
+                                <h1 class="text-left animated fadeInLeft">{{slide.title}}</h1>
     
                                 <p class="text-left">
                                    Stay calm, relax and enjoy exploring our awesome gallery,videos and events.
@@ -65,71 +61,28 @@
                         </div>
                     </div>
                      <ul class="social-icons list-inline">
-                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                                    <li><a href=""><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-
-                    </ul>
+                        <li v-for="social_media in social_medias" :key="social_media.id"><a :href="social_media.url" target="blank"><i :class="social_media.icon"></i></a></li>
+                     </ul>
                 </li>
-
- 
-                 <li>
+                <li v-for="videok in videoss" :key="videok.id">
                     <div class="bg-video">
-
-                        <img src="/static/images/img8.jpg">
-                        
-                        <div class="container">
-                            <div class="vidContent">
-                                
-  
-                                <h1 class="text-left animated fadeInLeft">AKWAABA !!! SAMK K TRAVEL & TOUR</h1>
-    
-                                <p class="text-left">
-                                   Stay calm, relax and enjoy exploring our awesome gallery,videos and events.
-                                </p>
-                                <a href="" id="vidBtn">GET STARTED</a>
-                            </div>
-                        </div>
-                    </div>
-                     <ul class="social-icons list-inline">
-                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                                    <li><a href=""><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <div class="bg-video">
-
-                        <video autoplay>
-                           <source src="/static/videos/video1.mp4" type="video/mp4">
+                        <video class="slider_video" style="width:100vw" autoplay>
+                            <source :src="videok.src" >
                         </video>
                         <div class="container">
                             <div class="vidContent">
-                                
-  
-                                <h1 class="text-left animated fadeInLeft">WELCOME TO SAM K TRAVEL & TOUR</h1>
+                                <h1 class="text-left animated fadeInLeft">{{videok.title}}</h1>
     
                                 <p class="text-left">
-                                    We love travelling.<br>We love visiting place in Algeria and so many places all around the world.<br/>Stay here with us,see our awesome gallery,videos and events!
+                                   Stay calm, relax and enjoy exploring our awesome gallery,videos and events.
                                 </p>
                                 <a href="" id="vidBtn">GET STARTED</a>
                             </div>
                         </div>
                     </div>
                      <ul class="social-icons list-inline">
-                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                                    <li><a href=""><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-
-                    </ul>
+                        <li v-for="social_media in social_medias" :key="social_media.id"><a :href="social_media.url" target="blank"><i :class="social_media.icon"></i></a></li>
+                     </ul>
                 </li>
             </ul> 
               
@@ -1897,6 +1850,11 @@ components:{Price,Portfolio,Events,Parteners,TopBar,Footer,Contact,Parallax,Para
     
 </script>
 <style scoped>
+.slider_image{
+    width:100vw;
+   
+}
+
 .preloader{
     background-image:linear-gradient(25deg,#A64EAE,#4683B7);
     min-width:599px;
@@ -2034,8 +1992,6 @@ a{
     position:relative;
     height:100%;
     width:100%;
-    overflow:hidden;
-    
 }
 
 

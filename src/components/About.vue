@@ -98,7 +98,7 @@
           </blockquote>
      </div>
      <div class="col-md-5 order-md-1">
-          <img src="/static/images/ceo.jpg" width="225" height="225" style="border-radius:50%"/>
+          <img src="/static/images/ceo_img.jpg" width="225" height="225" style="border-radius:50%"/>
      </div>
     </div>
 

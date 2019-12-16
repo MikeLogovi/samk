@@ -9,18 +9,94 @@
       animateClass="animated"
       :begin="false" 
     >
-    <section class="events" id="events">
+    <section class="events" id="events" v-if="past.length>0 || today.length>0 || upcoming.length>0">
          <div class="container text-center">
             <h1 class="section-title">Events</h1>
         </div>
-   
-            <div class="container">
+             
+           <div class="container" v-if="past && past.length>0">
                  <div class="row">
                      <div class="col-sm-12">
                           <div class="section_title">
-                              <div class="section_subtitle">
-                                  Events
-                              </div>
+                              
+                              <h2>Past events</h2>
+                          </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                      <div class="news-active">
+                          <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
+                            <slide  v-for="event in past" :key="event.id">
+                               <div class="col-md-12"  >
+                                 <div class="latest-news-wrap" >
+                                   <div class="news-img">
+                                       <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="img-responsive">
+                                       <div class="deat" style="float:left">
+                                           <span>{{event.day}}</span>
+                                           <span>{{event.month}}</span>       
+                                        </div>
+                                    </div>
+                                    <div class="news-content">
+                                        <h4 style="float:right">{{event.name.replace(/^./, event.name[0].toUpperCase())}}</h4>
+                                        <p style="clear:both">
+                                            <strong class="price"> {{event.price}} DA</strong> <br><br>
+                                           {{event.description |  truncate(100)}}
+                                        </p><br>
+                                        <a href="#" data-toggle="modal" :data-target="`#myModal${event.id}`">Read more</a>
+                                    </div>
+                               </div>
+                          </div>
+                            </slide>
+                         </carousel>
+                      </div>
+                  </div>
+            </div>
+
+
+           <div class="container" v-if="today&&today.length>0">
+                 <div class="row">
+                     <div class="col-sm-12">
+                          <div class="section_title">
+                              
+                              <h2>Today events</h2>
+                          </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                      <div class="news-active">
+                          <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
+                            <slide  v-for="event in today" :key="event.id">
+                               <div class="col-md-12"  >
+                                 <div class="latest-news-wrap" >
+                                   <div class="news-img">
+                                       <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="img-responsive">
+                                       <div class="deat" style="float:left">
+                                           <span>{{event.day}}</span>
+                                           <span>{{event.month}}</span>       
+                                        </div>
+                                    </div>
+                                    <div class="news-content">
+                                        <h4 style="float:right">{{event.name.replace(/^./, event.name[0].toUpperCase())}}</h4>
+                                        <p style="clear:both">
+                                            <strong class="price"> {{event.price}} DA</strong> <br><br>
+                                           {{event.description |  truncate(100)}}
+                                        </p><br>
+                                        <a href="#" data-toggle="modal" :data-target="`#myModal${event.id}`">Read more</a>
+                                    </div>
+                               </div>
+                          </div>
+                            </slide>
+                         </carousel>
+                      </div>
+                  </div>
+            </div>
+ 
+
+            <div class="container" v-if="upcoming&&upcoming.length>0">
+                 <div class="row">
+                     <div class="col-sm-12">
+                          <div class="section_title">
+                              
                               <h2>Upcoming events</h2>
                           </div>
                      </div>
@@ -28,34 +104,28 @@
                   <div class="row">
                       <div class="news-active">
                           <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
-                            <slide  v-for="event in events" :key="event.id">
+                            <slide  v-for="event in upcoming" :key="event.id">
                                <div class="col-md-12"  >
                                  <div class="latest-news-wrap" >
                                    <div class="news-img">
                                        <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="img-responsive">
-                                       <div class="deat">
+                                       <div class="deat" style="float:left">
                                            <span>{{event.day}}</span>
-                                           <span>{{event.month}}</span>
-                                           
+                                           <span>{{event.month}}</span>       
                                         </div>
                                     </div>
                                     <div class="news-content">
-                                   
-                                        <h4 >{{event.name.replace(/^./, event.name[0].toUpperCase())}}</h4>
-                                        
-                                        <p>
+                                        <h4 style="float:right">{{event.name.replace(/^./, event.name[0].toUpperCase())}}</h4>
+                                        <p style="clear:both">
                                             <strong class="price"> {{event.price}} DA</strong> <br><br>
                                            {{event.description |  truncate(100)}}
                                         </p><br>
                                         <a href="#" data-toggle="modal" :data-target="`#myModal${event.id}`">Read more</a>
-                                 
                                     </div>
                                </div>
-              
                           </div>
                             </slide>
                          </carousel>
-                          
                       </div>
                   </div>
             </div>
@@ -74,6 +144,8 @@ export default {
     computed:{
         ...mapState([
             'upcoming',
+            'today',
+            'past',
             'events'
         ])
     },

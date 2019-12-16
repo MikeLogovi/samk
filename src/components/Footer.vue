@@ -25,10 +25,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-xs-12 segment-three">
                         <h2>Follow us</h2>
-                        <a href="#" class="twitter" ><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                        <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+                         <a v-for="social_media in social_medias" :key="social_media.id" :href="social_media.url" target="blank"><i :class="social_media.icon"></i></a>
                     </div>
                     <div class="col-lg-3 col-md-6 col-xs-12 segment-four">
                         <h2>Our newsletter</h2>

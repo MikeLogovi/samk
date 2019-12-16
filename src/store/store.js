@@ -9,6 +9,8 @@ export const store =new Vuex.Store({
         partners:{},
         events:{},
         upcoming:[],
+        past:[],
+        today:[],
         videos:{},
         imageCategories:{},
         images:[],
@@ -29,24 +31,23 @@ export const store =new Vuex.Store({
             state.events=data
             var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
             state.events.forEach(event=>{
-                var prm= event.event_date.split('-')
-                var date =moment.utc([parseInt(prm[2]),parseInt(prm[1])-1,parseInt(prm[0])])
-                event.day=date.date()
-                event.month=months[date.month()]
-                var aujourdhui =new Date(moment().format('YYYY-MM-DD'))
-                date=new Date(date.format('YYYY-MM-DD'))
-                
-                if(date<aujourdhui){
+               
+                var date =moment(event.event_date,'DD/MM/YYYY')
+                event.day=date.format('D')
+                event.month=months[date.format('M')-1]
+                var aujourdui=moment().format('DD/MM/YYYY')
+                if(moment().diff(date, 'days') >0){
                     event.status='PASSED'
+                    state.past.push(event)
                 }
-                else if(date==aujourdhui){
+                else if(moment().diff(date, 'days') == 0){
                     event.status='TODAY'
+                    state.today.push(event)
                 }
-                else if(date>aujourdhui){
+                else if(moment().diff(date, 'days') <0){
                     event.status='UPCOMING'
-                }
-                if(event.status=='UPCOMING')
-                  state.upcoming.push(event)
+                    state.upcoming.push(event)
+                }     
             })
         },
         loadVideos(state,data){

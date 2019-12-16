@@ -18,13 +18,9 @@
                </div>
                <div class="col-1"></div>
                <div class="col-5 text-center parallax2-content">
-                   <h2>Let's go now! We have to explore world!</h2>
+                   <h2>HOW IS YOUR TRAVEL EXPERIENCE GOING TO BE WITH US!!!??</h2>
                    <p>
-                       We make great travel.We make best travel.We love travel and travel again
-                       We make great travel.We make best travel.We love travel and travel again
-                       We make great travel.We make best travel.We love travel and travel again
-                       We make great travel.We make best travel.We love travel and travel again
-                       We make great travel.We make best travel.We love travel and travel again
+                       With Sam K, we believe traveling is a way of life. What’s actually your way of life? What’s holding you back from taking that trip you have always been planning. For all you know it could be the break through of a great adventure and life experience. This world is full of adventures and we are going to keep exploring because when you travel you discover yourself. So make it a point to take a trip at least once a year to a place that you have never been before !!
                     </p>
                 </div>
            </div>
