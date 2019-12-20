@@ -30,10 +30,13 @@
                     <div class="col-lg-3 col-md-6 col-xs-12 segment-four">
                         <h2>Our newsletter</h2>
                         <p>In order to be informed in time converning all our future trips and travels Sam K TRAVEL AND Tour would like you to subscribe to our newsletter</p>
-                        <form action="" method="post">
-                            <input type="email" name="email" placeholder="Your email adress">
+                        <form @submit.prevent="storeEmail">
+                            <input type="email" name="email" placeholder="Your email adress" v-model="form.email" :class="{ 'is-invalid ': form.errors.has('email') }">
+                            <has-error :form="form" field="email"></has-error>
                             <input type="submit" value="subscribe">
                          </form>
+
+                          <notifications group="new_email" />
                     </div>
                 </div>
             </div>
@@ -42,16 +45,39 @@
      </footer>
 </template>
 <script>
+import {Form} from 'vform'
 export default {
     name:'Footer',
     computed:{
          showRoute(){
             return this.$router.currentRoute.name=="Home"
         }
+    },
+    data(){
+        return {
+             form:new Form({
+                 email:''
+             })
+        }
     }
      ,
     mounted(){
 
+    },
+    methods:{
+         storeEmail(){
+               this.form.post(backend_endpoint+'newsletters/storeEmail',form).then(data=>{
+                      this.$notify({
+                        group: 'new_email',
+                        type: 'success',
+                        text: 'Thank you for registering to our newsletter.You will now be informed for each new event',
+                        duration: 2500,
+                    
+                     })
+               }).catch(error=>{
+                   console.log(error)
+               })
+         }
     }
 }
 </script>

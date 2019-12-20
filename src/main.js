@@ -20,6 +20,8 @@ import mixin from './mixin/mixin'
 import {mapState} from 'vuex'
 import Promise from "promise-polyfill";
 import {HasError, AlertError } from 'vform'
+import Notifications from 'vue-notification' 
+Vue.use(Notifications)
 window.backend_endpoint='http://localhost:8000/'
  
 Vue.component(HasError.name, HasError)

@@ -157,10 +157,10 @@ export default {
     display:flex;
     justify-content:center;
    padding-top:12px;
-   padding-bottom:3px;
+   padding-bottom:0;
     transition:all 0.3s;
     background-color:white;
-    z-index:9999;
+    z-index:9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
     position:absolute;
     top:0px;
     width:100%;
@@ -196,7 +196,7 @@ export default {
 }
 .mylogo{
     width:100px;
-    height:50px;
+    height:30px;
     /*margin:0 0.4em; */
 }
 .nav ul li .black{

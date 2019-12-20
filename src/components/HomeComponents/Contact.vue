@@ -49,16 +49,9 @@
 				</div>
 			</div>
 		
+
+      <notifications group="message_sent" />
 		<!-- END Contact -->
-
-
-
-
-
-
-
-
-
   <div class="map-content">
     <div id="map"></div>
   </div>
@@ -83,7 +76,13 @@ export default {
  methods:{
       login(){
           this.form.post(backend_endpoint+'api/messages/storeMessage',this.form).then(data =>{
-              console.log(data);
+                this.$notify({
+                  group: 'message_sent',
+                  type: 'success',
+                  text: 'Your query has been seent successfully,we will respond you as soon as possible',
+                  duration: 2500,
+              
+                })
           }).catch(error=>{
             console.log(error)
           });
