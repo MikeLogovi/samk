@@ -19,6 +19,11 @@ import VueWow from 'vue-wow'
 import mixin from './mixin/mixin'
 import {mapState} from 'vuex'
 import Promise from "promise-polyfill";
+import {HasError, AlertError } from 'vform'
+window.backend_endpoint='http://localhost:8000/'
+ 
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
 
 var VueTruncate = require('vue-truncate-filter')
 Vue.use(VueTruncate)

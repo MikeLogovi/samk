@@ -13,19 +13,22 @@
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-						<form action="#">
-							<div class="form-group">
+						<form  @submit.prevent="login">
+							<div class="form-group" :class="{ 'has-error ': form.errors.has('author_name') }">
 								<label for="name">Name</label>
-								<input type="text" class="form-control" id="name">
-							</div>
+								<input type="text" class="form-control" id="name" name="author_name" v-model="form.author_name" :class="{ 'is-invalid ': form.errors.has('author_name') }">
+							  <has-error :form="form" field="author_name"></has-error>
+              </div>
 							<div class="form-group">
 								<label for="name">Email</label>
-								<input type="text" class="form-control" id="email">
-							</div>
+								<input type="text" class="form-control" id="email" name="author_email" v-model="form.author_email" :class="{ 'is-invalid ': form.errors.has('author_email') }">
+							  <has-error :form="form" field="author_email"></has-error>
+              </div>
 							<div class="form-group">
 								<label for="message">Message</label>
-								<textarea name="" id="message" cols="30" rows="30" style="height:300px" class="form-control"></textarea>
-							</div>
+								<textarea name="content" id="message" cols="30" rows="30" style="height:300px" class="form-control" v-model="form.content" :class="{ 'is-invalid': form.errors.has('content') }"></textarea>
+							  <has-error :form="form" field="content"></has-error>
+              </div>
 							<div class="form-group">
 								<input type="submit" class="btn btn btn-special" value="Send Message">
 							</div>
@@ -64,8 +67,28 @@
 
 </template>
 <script>
+import {Form} from 'vform'
+import axios from 'axios'
 export default {
  name:'Contact',
+ data(){
+     return{
+        form:new Form({
+           author_name:'',
+           author_email:'',
+           content:'',
+        })
+     }
+ },
+ methods:{
+      login(){
+          this.form.post(backend_endpoint+'api/messages/storeMessage',this.form).then(data =>{
+              console.log(data);
+          }).catch(error=>{
+            console.log(error)
+          });
+      }
+ },
  mounted(){
      AOS.init();
 
