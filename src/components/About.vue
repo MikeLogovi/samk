@@ -10,7 +10,7 @@
 
     <hr class="featurette-divider">
 
-    <div class="row featurette ajust-content">
+    <div class="row featurette ajust-content positionning_elements">
       <div class="col-md-7 push_down">
         <h2 class="featurette-heading">ABOUT SAM K TRAVEL & TOUR</h2>
         
@@ -18,24 +18,24 @@
           industry in Africa and the world at large
         </p>
       </div>
-      <div class="col-md-5 left-img">
-          <img class="left-img" src="/static/logo3.png" width="300" height="300"/>
+      <div class="col-md-5 left-img responsive_position_logo ">
+          <img class="left-img responsive_logo" src="/static/logo3.png" width="300" height="300"/>
       </div>
     </div>
 
     <hr class="featurette-divider">
-      <div class="row featurette ajust-content">
+      <div class="row featurette ajust-content positionning_elements">
       <div class="col-md-7 push_down">
         <h2 class="featurette-heading">OUR VISION</h2>
         <p >To be the largest tourism company in Africa and beyond</p>
       </div>
-      <div class="col-md-5 ">
-         <img class="left-img" src="/static/images/vision.jpg" width="300" height="260"/>
+      <div class="col-md-5 responsive_position_logo">
+         <img class="left-img responsive_logo" src="/static/images/vision.jpg" width="300" height="260"/>
       </div>
     </div>
     <hr class="featurette-divider">
 
-    <div class="row featurette ">
+    <div class="row featurette positionning_elements_left">
       <div class="col-md-7 order-md-2 ajust-content" style="margin-left:-100px">
         <h2 class="featurette-heading">OUR MISSIONS</h2>
         <p >
@@ -60,14 +60,14 @@
              </ul>
         </p>
       </div>
-      <div class="col-md-5 order-md-1">
-          <img src="/static/images/mission.jpg" width="300" height="260"/>
+      <div  class="col-md-5 order-md-1 responsive_position_logo positionning_img_right" id="mission_img" >
+          <img src="/static/images/mission.jpg" class="responsive_logo" width="300" height="260"/>
       </div>
     </div>
 
     <hr class="featurette-divider">
-    <div class="row featurette ajust-content">
-      <div class="col-md-7"  style="margin-left:-40px">
+    <div class="row featurette ajust-content positionning_elements_achievements">
+      <div class="col-md-7 ajust-content"  style="margin-left:-40px">
         <h2 class="featurette-heading">OUR ACHIEVEMENTS</h2>
         <p>
           The company has embarked on amazing and exciting tours.Remarkable visits include
@@ -80,12 +80,12 @@
           tours in the years ahead,as well as other parts of the world
         </p>
       </div>
-      <div class="col-md-5" style="margin-left:40px">
-          <img src="/static/logo3.png" width="300" height="300"/>
+      <div class="col-md-5 order-md-1 responsive_position_logo positionning_img_right achievement_img" >
+          <img src="/static/logo3.png" width="300" height="300" class="responsive_logo"/>
       </div>
     </div>
     <hr class="featurette-divider">
-    <div class="row featurette">
+    <div class="row featurette positionning_elements_left">
       <div class="col-md-7 order-md-2" style="margin-left:-100px">
           <h2 class="featurette-heading" style="margin-left:5px">THE CEO</h2>
           <p >
@@ -97,8 +97,8 @@
               to the word freedom.
           </blockquote>
      </div>
-     <div class="col-md-5 order-md-1">
-          <img src="/static/images/ceo_img.jpg" width="225" height="225" style="border-radius:50%"/>
+     <div class="col-md-5 order-md-1 responsive_ceo_img_position">
+          <img class="responsive_ceo_img" src="/static/images/ceo_img.jpg" width="225" height="225" style="border-radius:50%"/>
      </div>
     </div>
 
@@ -127,7 +127,9 @@ export default {
 
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
 
-
+.achievement_img{
+  margin-left:40px;
+}
 .marketing .col-lg-4 {
   margin-bottom: 1.5rem;
   text-align: center;
@@ -224,4 +226,160 @@ blockquote{
 /*.left-img{
   margin-right:2px;
 }*/
+/*Responsive CSS*/
+
+@media only screen and (min-width: 200px) and (max-width: 479px){
+   .positionning_elements{
+        margin-right:10px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   
+   .positionning_elements_left{
+        margin-left:100px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   .positionning_elements_achievements{
+        margin-right:-50px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   .push_down{
+     margin-top:0px;
+   }
+   .responsive_position_logo{
+     margin-top:30px;
+     margin-left:0px;
+    
+   }
+   #mission_img{
+     margin-top:30px;
+     margin-left:-60px
+   }
+   .responsive_ceo_img_position{
+       margin-left:-5px;
+       margin-top:10px;
+   }
+   .responsive_logo{
+       width:100px;
+       height:100px;
+   }
+   .positionning_img_right{
+       margin-left:0px;
+   }
+   .responsive_ceo_img{
+     width:125px;
+     height:125px;
+   }
+  
+}
+@media only screen and (min-width: 480px) and (max-width: 500px){
+  .positionning_elements{
+        margin-right:100px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   
+   .positionning_elements_left{
+        margin-left:100px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   .positionning_elements_achievements{
+        margin-right:-50px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   .push_down{
+     margin-top:0px;
+   }
+   .responsive_position_logo{
+     margin-top:30px;
+     margin-left:0px;
+    
+   }
+   #mission_img{
+     margin-top:30px;
+     margin-left:-60px
+   }
+   .responsive_ceo_img_position{
+       margin-left:20px;
+       margin-top:30px;
+   }
+   .responsive_logo{
+       width:200px;
+       height:200px;
+   }
+   .positionning_img_right{
+       margin-left:0px;
+   }
+  
+}
+@media only screen and (min-width: 500px) and (max-width: 740px){
+   .positionning_elements{
+        margin-right:100px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   
+   .positionning_elements_left{
+        margin-left:100px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   .positionning_elements_achievements{
+        margin-right:-50px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   .push_down{
+     margin-top:0px;
+   }
+   .responsive_position_logo{
+     margin-top:30px;
+     margin-left:0px;
+    
+   }
+   #mission_img{
+     margin-top:30px;
+     margin-left:-60px
+   }
+   .responsive_ceo_img_position{
+       margin-left:20px;
+       margin-top:30px;
+   }
+   .responsive_logo{
+       width:200px;
+       height:200px;
+   }
+   .positionning_img_right{
+       margin-left:0px;
+   }
+}
+@media only screen and (min-width: 741px) and (max-width: 1203px){
+   .push_down{
+     margin-top:0px;
+   }
+   .responsive_position_logo{
+     margin-top:-40px;
+    
+   }
+   .responsive_logo{
+       width:200px;
+       height:200px;
+   }
+  
+}
+@media only screen and (min-width: 1203px) {
+   .vidContent h1{
+       font-size:3em;
+   }
+   .vidContent{
+       top:200px;
+   }
+   
+}
+
+
 </style>

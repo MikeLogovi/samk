@@ -1,4 +1,4 @@
-<template lang="pug">
+<!--<template lang="pug">
 #app
   #header
    TopBar
@@ -15,6 +15,13 @@
     <modal v-if="modalIsVisible" :closeModal="closeModal" :content="modalContent" />
   #footer
  
+</template>-->
+<template>
+  <div>
+     <TopBar/>
+     
+     <Footer/>
+  </div>
 </template>
 
 <script>

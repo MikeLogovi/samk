@@ -334,6 +334,13 @@ position: absolute;
     width: 100%;
     height: 500px;
 }
+@media only screen and (min-width: 200px) and (max-width: 479px){
+  #map {
+    position: absolute;
+        width: 100%;
+        height: 200px;
+    }
+}
 /*
 h6{
   font-size: 1rem;
