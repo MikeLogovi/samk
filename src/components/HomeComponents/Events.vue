@@ -14,12 +14,12 @@
             <h1 class="section-title">Events</h1>
         </div>
              
-           <div class="container" v-if="past && past.length>0">
-                 <div class="row">
+           <div class="container-fluid" v-if="past && past.length>0">
+                   <div class="row">
                      <div class="col-sm-12">
                           <div class="section_title">
                               
-                              <h2>Past events</h2>
+                              <h2>past events</h2>
                           </div>
                      </div>
                   </div>
@@ -27,10 +27,11 @@
                       <div class="news-active">
                           <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
                             <slide  v-for="event in past" :key="event.id">
+                                
                                <div class="col-md-12"  >
                                  <div class="latest-news-wrap" >
                                    <div class="news-img">
-                                       <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="img-responsive">
+                                       <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="event-img-size  img-responsive">
                                        <div class="deat" style="float:left">
                                            <span>{{event.day}}</span>
                                            <span>{{event.month}}</span>       
@@ -42,7 +43,7 @@
                                             <strong class="price"> {{event.price}} DA</strong> <br><br>
                                            {{event.description |  truncate(100)}}
                                         </p><br>
-                                        <a href="#" data-toggle="modal" :data-target="`#myModal${event.id}`">Read more</a>
+                                        <a href="#"  @click.prevent="openModal(event)">Read more</a>
                                     </div>
                                </div>
                           </div>
@@ -53,7 +54,7 @@
             </div>
 
 
-           <div class="container" v-if="today&&today.length>0">
+           <div class="container-fluid" v-if="today&&today.length>0">
                  <div class="row">
                      <div class="col-sm-12">
                           <div class="section_title">
@@ -66,10 +67,11 @@
                       <div class="news-active">
                           <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
                             <slide  v-for="event in today" :key="event.id">
-                               <div class="col-md-12"  >
+                                
+                               <div class="col-md-12">
                                  <div class="latest-news-wrap" >
                                    <div class="news-img">
-                                       <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="img-responsive">
+                                       <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="event-img-size  ">
                                        <div class="deat" style="float:left">
                                            <span>{{event.day}}</span>
                                            <span>{{event.month}}</span>       
@@ -81,7 +83,7 @@
                                             <strong class="price"> {{event.price}} DA</strong> <br><br>
                                            {{event.description |  truncate(100)}}
                                         </p><br>
-                                        <a href="#" data-toggle="modal" :data-target="`#myModal${event.id}`">Read more</a>
+                                       <a href="#"  @click.prevent="openModal(event)">Read more</a>
                                     </div>
                                </div>
                           </div>
@@ -92,7 +94,7 @@
             </div>
  
 
-            <div class="container" v-if="upcoming&&upcoming.length>0">
+            <div class="container-fluid" v-if="upcoming&&upcoming.length>0">
                  <div class="row">
                      <div class="col-sm-12">
                           <div class="section_title">
@@ -105,10 +107,13 @@
                       <div class="news-active">
                           <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
                             <slide  v-for="event in upcoming" :key="event.id">
-                               <div class="col-md-12"  >
+                                
+
+
+                               <div class="col-md-12">
                                  <div class="latest-news-wrap" >
                                    <div class="news-img">
-                                       <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="img-responsive">
+                                       <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="event-img-size ">
                                        <div class="deat" style="float:left">
                                            <span>{{event.day}}</span>
                                            <span>{{event.month}}</span>       
@@ -120,8 +125,8 @@
                                             <strong class="price"> {{event.price}} DA</strong> <br><br>
                                            {{event.description |  truncate(100)}}
                                         </p><br>
-                                        <a href="#" data-toggle="modal" :data-target="`#myModal${event.id}`">Read more</a>
-                                    </div>
+                                        <a href="#"  @click.prevent="openModal(event)">Read more</a>
+                          </div>
                                </div>
                           </div>
                             </slide>
@@ -129,6 +134,21 @@
                       </div>
                   </div>
             </div>
+
+           <sweet-modal ref='modal'>
+            <div class="dialog" v-if="crtSelectedItem">
+                <br/>
+                <h1 class="">{{crtSelectedItem.name}}</h1>
+                <img :src="`${backendEndpoint()+'storage/'+crtSelectedItem.source}`" class="img-responsive"/>
+                <p class="lead">
+                    {{crtSelectedItem.description}}
+                </p>
+
+               <strong class="text-danger">For registering to this event,let us a message with your informations in contact session</strong>
+               <a class="btn btn-warning" @click="closeModal" href="#contact" v-smooth-scroll>Contact</a>
+            </div>
+           </sweet-modal>
+
     </section>
       </u-animate>
   </u-animate-container>
@@ -138,9 +158,11 @@ import {UAnimateContainer, UAnimate} from 'vue-wow'
 import {Carousel,Slide} from 'vue-carousel'
 import Price from './Price'
 import {mapState} from 'vuex'
+import { SweetModal, SweetModalTab } from 'sweet-modal-vue'
 export default {
     name:'Events',
-    components:{UAnimateContainer, UAnimate,Carousel,Slide},
+    components:{UAnimateContainer, UAnimate,Carousel,Slide,SweetModal, SweetModalTab},
+     data: () => ({ crtSelectedItem: null }),
     computed:{
         ...mapState([
             'upcoming',
@@ -159,16 +181,36 @@ export default {
     methods:{
         loadEvents(){
             this.$store.dispatch('loadEvents')
+        },
+          openModal (item) {
+            this.crtSelectedItem = { ...item };
+            this.$refs.modal.open();
+        },
+        closeModal(){
+            this.$refs.modal.close();
         }
     }
 }
 </script>
 <style scoped>
+.event-img-size {
+    min-width:100%;
+    height:250px;
+}
 .section_title .section_subtitle{
     color:#ff5252!important;
 }
 h4{
     color:#34af23;
+}
+.dialog h1{
+     color:#34af23;
+}
+.dialog p{
+     margin-top:15px;
+     font-style:italic;
+     text-align:justify;
+     text-justify:inter-word;
 }
 .section_title h2,.price{
     color:transparent;

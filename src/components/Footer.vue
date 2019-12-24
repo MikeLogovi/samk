@@ -36,7 +36,7 @@
                             <input type="submit" value="subscribe">
                          </form>
 
-                          <notifications group="new_email" />
+                          <notifications group="new_email" position="bottom right"/>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@ export default {
     },
     methods:{
          storeEmail(){
-               this.form.post(backend_endpoint+'newsletters/storeEmail',form).then(data=>{
+               this.form.post(backend_endpoint+'api/newsletters/storeEmail',this.form).then(data=>{
                       this.$notify({
                         group: 'new_email',
                         type: 'success',
@@ -74,6 +74,7 @@ export default {
                         duration: 2500,
                     
                      })
+                     this.form.email=""
                }).catch(error=>{
                    console.log(error)
                })
