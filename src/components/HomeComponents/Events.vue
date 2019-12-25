@@ -174,7 +174,7 @@ export default {
     mounted(){
          console.log(this.$router.currentRoute)
           this.loadEvents() 
-          Echo.channel('event_crud').listen('EventCrud',(data)=>{
+          Echo.channel('my-channel').listen('.event-crud',(data)=>{
             this.loadEvents()
         })
     },

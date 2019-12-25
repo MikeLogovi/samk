@@ -138,7 +138,7 @@ components:{Price,Portfolio,Events,Parteners,TopBar,Footer,Contact,Parallax,Para
   
     mounted(){
         this.loadSliders()
-        Echo.channel('slider_crud').listen('SliderCrud', (data)=> {
+        Echo.channel('my-channel').listen('.slider-crud', (data)=> {
                    this.loadSliders()
             });
         this.$nextTick(function () {

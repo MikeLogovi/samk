@@ -46,7 +46,7 @@ export default {
     },
     mounted(){
         this.loadTeams()
-        Echo.channel('team_crud').listen('TeamCrud',res=>{
+        Echo.channel('my-channel').listen('.team-crud',res=>{
             this.loadTeams()
         })
     },

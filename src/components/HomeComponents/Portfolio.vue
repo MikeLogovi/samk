@@ -80,10 +80,10 @@ export default {
     },
     mounted(){
           this.loadImages() 
-          Echo.channel('portfolio_category_crud').listen('PortfolioCategoryCrud',(data)=>{
+          Echo.channel('my-channel').listen('.portfolio-category-crud',(data)=>{
             this.loadImages()
         })
-         Echo.channel('portfolio_image_crud').listen('PortfolioImageCrud',(data)=>{
+         Echo.channel('my-channel').listen('.portfolio-image-crud',(data)=>{
             this.loadImages()
         })
     },

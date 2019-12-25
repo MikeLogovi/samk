@@ -75,7 +75,7 @@ export default {
     },
     mounted(){
         this.loadComments()
-        Echo.channel('comment_crud').listen('CommentCrud',(data)=>{
+        Echo.channel('my-channel').listen('.comment-crud',(data)=>{
             this.loadComments()
         })
     },

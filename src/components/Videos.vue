@@ -66,7 +66,8 @@ export default {
     },
     mounted(){
           this.loadVideos() 
-          Echo.channel('video_crud').listen('VideoCrud',(data)=>{
+          Echo.channel('my-channel').listen('.video-crud',(data)=>{
+            
             this.loadVideos()
         })
     },

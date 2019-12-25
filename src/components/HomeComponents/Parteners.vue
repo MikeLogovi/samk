@@ -31,7 +31,7 @@ export default{
    },
    mounted(){
        this.loadPartners()
-       Echo.channel('partner_crud').listen('PartnerCrud',(data)=>{
+       Echo.channel('my-channel').listen('.partner-crud',(data)=>{
            this.loadPartners()
        })
    },
