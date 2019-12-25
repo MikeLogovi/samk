@@ -20,27 +20,9 @@
   <div>
      <TopBar/>
      <div class="main">
-         <div class="gallery">
-             <div class="img">
-                 <img src="/static/images/img1.jpg"/>
-             </div>
-             <div class="img">
-                 <img src="/static/images/img2.JPG"/>
-             </div>
-             <div class="img">
-                 <img src="/static/images/img3.JPG"/>
-             </div>
-             <div class="img">
-                 <img src="/static/images/img4.JPG"/>
-             </div>
-             <div class="img">
-                 <img src="/static/images/img5.jpg"/>
-             </div>
-             <div class="img">
-                 <img src="/static/images/img6.JPG"/>
-             </div>
-             <div class="img">
-                 <img src="/static/images/img7.JPG"/>
+         <div class="gallery" v-viewer>
+             <div class="img" v-for="image in images" :key="image.id">
+                 <img :src="`${backendEndpoint()+'storage/'+image.source}`"/>
              </div>
          </div>
      </div>

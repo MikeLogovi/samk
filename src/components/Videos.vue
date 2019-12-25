@@ -13,7 +13,7 @@
                <hr>
                   <div class="col-md-7">
                     <h2 class="featurette-heading">{{video.title}}</h2>
-                    <p class="lead">{{video.description}}</p>
+                    <p class="video-description">{{video.description}}</p>
                   </div>
                   <div class="col-md-5 ">
 
@@ -79,7 +79,10 @@ export default {
 </script>
 <style scoped>
 
-
+.video-description{
+  text-align:justify;
+  text-justify:inter-word;
+}
 
 .marketing .col-lg-4 {
   margin-bottom: 1.5rem;
@@ -290,6 +293,159 @@ export default {
      outline:0;
      box-shadow:0 3px 9px rgba(0,0,0,0.5);
      margin-top:120px;
- }   
+ }  
+
+ @media only screen and (min-width: 200px) and (max-width: 479px){
+   .positionning_elements{
+        margin-right:10px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   
+   .positionning_elements_left{
+        margin-left:100px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   .positionning_elements_achievements{
+        margin-right:-50px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   .push_down{
+     margin-top:0px;
+   }
+   .responsive_position_logo{
+     margin-top:30px;
+     margin-left:0px;
+    
+   }
+   #mission_img{
+     margin-top:30px;
+     margin-left:-60px
+   }
+   .responsive_ceo_img_position{
+       margin-left:-5px;
+       margin-top:10px;
+   }
+   .responsive_logo{
+       width:100px;
+       height:100px;
+   }
+   .positionning_img_right{
+       margin-left:0px;
+   }
+   .responsive_ceo_img{
+     width:125px;
+     height:125px;
+   }
+  
+}
+@media only screen and (min-width: 480px) and (max-width: 500px){
+  .positionning_elements{
+        margin-right:100px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   
+   .positionning_elements_left{
+        margin-left:100px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   .positionning_elements_achievements{
+        margin-right:-50px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   .push_down{
+     margin-top:0px;
+   }
+   .responsive_position_logo{
+     margin-top:30px;
+     margin-left:0px;
+    
+   }
+   #mission_img{
+     margin-top:30px;
+     margin-left:-60px
+   }
+   .responsive_ceo_img_position{
+       margin-left:20px;
+       margin-top:30px;
+   }
+   .responsive_logo{
+       width:200px;
+       height:200px;
+   }
+   .positionning_img_right{
+       margin-left:0px;
+   }
+  
+}
+@media only screen and (min-width: 500px) and (max-width: 740px){
+   .positionning_elements{
+        margin-right:100px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   
+   .positionning_elements_left{
+        margin-left:100px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   .positionning_elements_achievements{
+        margin-right:-50px;
+        margin-bottom:0;
+        padding-bottom:0;
+   }
+   .push_down{
+     margin-top:0px;
+   }
+   .responsive_position_logo{
+     margin-top:30px;
+     margin-left:0px;
+    
+   }
+   #mission_img{
+     margin-top:30px;
+     margin-left:-60px
+   }
+   .responsive_ceo_img_position{
+       margin-left:20px;
+       margin-top:30px;
+   }
+   .responsive_logo{
+       width:200px;
+       height:200px;
+   }
+   .positionning_img_right{
+       margin-left:0px;
+   }
+}
+@media only screen and (min-width: 741px) and (max-width: 1203px){
+   .push_down{
+     margin-top:0px;
+   }
+   .responsive_position_logo{
+     margin-top:-40px;
+    
+   }
+   .responsive_logo{
+       width:200px;
+       height:200px;
+   }
+  
+}
+@media only screen and (min-width: 1203px) {
+   .vidContent h1{
+       font-size:3em;
+   }
+   .vidContent{
+       top:200px;
+   }
+   
+} 
 }
 </style>

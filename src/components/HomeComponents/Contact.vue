@@ -335,7 +335,7 @@ p{
 #map {
 position: absolute;
     width: 100%;
-    height: 500px;
+    height: 200px;
 }
 @media only screen and (min-width: 200px) and (max-width: 479px){
   #map {
@@ -2070,5 +2070,55 @@ blockquote p > cite {
   background: none;
   background: #4d4d4d;
 }
+/*Responsive design*/
+@media only screen and (min-width: 200px) and (max-width: 479px){
+   .map-content{
+    display: flex;
+    justify-content: flex-start;
+    height: 500px;
+    margin-bottom:0;
+  }
 
+#map {
+    position: absolute;
+        width: 100%;
+        height: 500px;
+    }
+}
+@media only screen and (min-width: 480px) and (max-width: 500px){
+  
+}
+@media only screen and (min-width: 500px) and (max-width: 740px){
+    .map-content{
+    display: flex;
+    justify-content: flex-start;
+    height: 300px;
+    margin-bottom:0;
+  }
+
+#map {
+    position: absolute;
+        width: 100%;
+        height: 300px;
+    }
+}
+
+@media only screen and (min-width: 741px) and (max-width: 1203px){
+      .map-content{
+    display: flex;
+    justify-content: flex-start;
+    height: 300px;
+    margin-bottom:0;
+  }
+
+#map {
+    position: absolute;
+        width: 100%;
+        height: 300px;
+    }
+}
+
+@media only screen and (min-width: 1203px) {
+   
+}
 </style>
