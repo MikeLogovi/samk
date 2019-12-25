@@ -26,7 +26,7 @@
                 
            <transition name="slide-fade" >
          <div class="container-fluid gallery full-width " >
-                    <div  v-for="project in projects" v-bind:key="project.title">
+                    <div  v-for="project in projects.slice(0,11)" v-bind:key="project.title">
                         <div class="col-lg-3 col-md-6 col-xs-12 items no-padding"  v-if="currentFilter == project.portfolio_category_id|| currentFilter === 'ALL'" >
                             <div class="item-img">
                            

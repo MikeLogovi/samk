@@ -22,7 +22,7 @@ import Promise from "promise-polyfill";
 import {HasError, AlertError } from 'vform'
 import Notifications from 'vue-notification' 
 Vue.use(Notifications)
-window.backend_endpoint='http://localhost:8000/'
+window.backend_endpoint='https://administration.samktravelandtour.com/'
  
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
@@ -33,7 +33,8 @@ Vue.use(VueTruncate)
 if (!window.Promise) {
   window.Promise = Promise;
 }
-window.BACKEND_ENDPOINT='http://localhost:8000/'
+/*http://localhost:8000/*/
+window.BACKEND_ENDPOINT='https://administration.samktravelandtour.com/'
 window.axios=axios
 window.Echo = new Echo({
   broadcaster: 'pusher',

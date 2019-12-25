@@ -5,7 +5,7 @@
         </div>
    
         <div class="container">
-               <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
+               <carousel :perPageCustom="[[1199,3],[920,3],[420,2],[0,1]]"  :mouse-drag="true" :autoplay="true">
                         <slide  v-for="partner in partners" :key="partner.id">
                            <img  :src="`${backendEndpoint()}storage/${partner.source}`" class="logo-parteners " alt=""> 
                         </slide>

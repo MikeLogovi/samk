@@ -17,7 +17,7 @@
         <div class="container">
             
                 <div  id="testimonial-slider">
-                    <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
+                    <carousel :perPageCustom="[[1199,3],[920,3],[420,2],[0,1]]"  :mouse-drag="true" :autoplay="true">
                         <slide v-for="comment in comments" :key="comment.id">
                             <div class="testimonial" >
                                     <span class="icon fa fa-quote-left"></span>

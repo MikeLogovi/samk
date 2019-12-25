@@ -64,7 +64,7 @@
                         <li v-for="social_media in social_medias" :key="social_media.id"><a :href="social_media.url" target="blank"><i :class="social_media.icon"></i></a></li>
                      </ul>
                 </li>
-                <li v-for="videok in videoss" :key="videok.id">
+                <!--<li v-for="videok in videoss" :key="videok.id">
                     <div class="bg-video">
                         <video class="slider_video" style="width:100vw" autoplay>
                             <source :src="videok.src" >
@@ -83,7 +83,7 @@
                      <ul class="social-icons list-inline">
                         <li v-for="social_media in social_medias" :key="social_media.id"><a :href="social_media.url" target="blank"><i :class="social_media.icon"></i></a></li>
                      </ul>
-                </li>
+                </li>-->
             </ul> 
               
        </header>

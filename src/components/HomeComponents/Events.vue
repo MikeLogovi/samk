@@ -13,21 +13,18 @@
          <div class="container text-center">
             <h1 class="section-title">Events</h1>
         </div>
-             
-           <div class="container-fluid" v-if="past && past.length>0">
+           <div class="container" v-if="past && past.length>0">
                    <div class="row">
                      <div class="col-sm-12">
-                          <div class="section_title">
-                              
+                          <div class="section_title">            
                               <h2>past events</h2>
                           </div>
                      </div>
                   </div>
-                  <div class="row">
-                      <div class="news-active">
-                          <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
+                  <div class="row" >
+                      <div class="news-active" style="width:100%;">
+                          <carousel :perPageCustom="[[1199,3],[920,3],[420,2],[0,1]]" :mouse-drag="true" :autoplay="true" >
                             <slide  v-for="event in past" :key="event.id">
-                                
                                <div class="col-md-12"  >
                                  <div class="latest-news-wrap" >
                                    <div class="news-img">
@@ -52,9 +49,7 @@
                       </div>
                   </div>
             </div>
-
-
-           <div class="container-fluid" v-if="today&&today.length>0">
+           <div class="container" v-if="today&&today.length>0">
                  <div class="row">
                      <div class="col-sm-12">
                           <div class="section_title">
@@ -64,11 +59,11 @@
                      </div>
                   </div>
                   <div class="row">
-                      <div class="news-active">
-                          <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
+                      <div class="news-active" style="width:100%;">
+                          <carousel :perPageCustom="[[1199,3],[920,3],[420,2],[0,1]]" :mouse-drag="true" :autoplay="true">
                             <slide  v-for="event in today" :key="event.id">
                                 
-                               <div class="col-md-12">
+                               <div class="col-md-4">
                                  <div class="latest-news-wrap" >
                                    <div class="news-img">
                                        <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="event-img-size  ">
@@ -94,7 +89,7 @@
             </div>
  
 
-            <div class="container-fluid" v-if="upcoming&&upcoming.length>0">
+            <div class="container" v-if="upcoming&&upcoming.length>0">
                  <div class="row">
                      <div class="col-sm-12">
                           <div class="section_title">
@@ -104,13 +99,13 @@
                      </div>
                   </div>
                   <div class="row">
-                      <div class="news-active">
-                          <carousel :per-page="3"  :mouse-drag="true" :autoplay="true">
+                      <div class="news-active" style="width:100%;">
+                          <carousel :perPageCustom="[[1199,3],[920,3],[420,2],[0,1]]"  :mouse-drag="true" :autoplay="true" >
                             <slide  v-for="event in upcoming" :key="event.id">
                                 
 
 
-                               <div class="col-md-12">
+                               <div class="col-md-4">
                                  <div class="latest-news-wrap" >
                                    <div class="news-img">
                                        <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="event-img-size ">
@@ -194,7 +189,7 @@ export default {
 </script>
 <style scoped>
 .event-img-size {
-    min-width:100%;
+    width:100%;
     height:250px;
 }
 .section_title .section_subtitle{
@@ -222,6 +217,8 @@ h4{
   .events{
       margin-top:40px;
       margin-bottom:40px;
+      width:100vw;
+      margin-right:30px;
   }
   .latest-news-wrap{
       box-shadow:0px 3px 10px rgba(0,0,0,0.1);

@@ -21,7 +21,8 @@ export default{
     },
     methods:{
         backendEndpoint(){
-            return 'http://localhost:8000/'
+            /* 'http://localhost:8000/' */
+            return 'https://administration.samktravelandtour.com/'
         },
         scrolling(ancre){
          var target=$(ancre)

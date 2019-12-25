@@ -160,7 +160,7 @@ export default {
    padding-bottom:0;
     transition:all 0.3s;
     background-color:white;
-    z-index:9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
+    z-index:99999;
     position:absolute;
     top:0px;
     width:100%;
