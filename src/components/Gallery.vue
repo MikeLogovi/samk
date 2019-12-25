@@ -19,15 +19,42 @@
 <template>
   <div>
      <TopBar/>
-     
+     <div class="main">
+         <div class="gallery">
+             <div class="img">
+                 <img src="/static/images/img1.jpg"/>
+             </div>
+             <div class="img">
+                 <img src="/static/images/img2.JPG"/>
+             </div>
+             <div class="img">
+                 <img src="/static/images/img3.JPG"/>
+             </div>
+             <div class="img">
+                 <img src="/static/images/img4.JPG"/>
+             </div>
+             <div class="img">
+                 <img src="/static/images/img5.jpg"/>
+             </div>
+             <div class="img">
+                 <img src="/static/images/img6.JPG"/>
+             </div>
+             <div class="img">
+                 <img src="/static/images/img7.JPG"/>
+             </div>
+         </div>
+     </div>
      <Footer/>
+     <!--<div class="brick" v-for="image in images" :key="image.id" >
+                <img class="galleryImg" :src="`${backendEndpoint()+'storage/'+image.source}`" alt="Cherry plant" title="Cherry plant">
+     </div>-->
   </div>
 </template>
 
 <script>
 import TopBar from './TopBar'
 import Footer from './Footer'
-import VueMasonryGallery from "./GalleryComponents/VueMasonryGallery.vue";
+import VueMasonryGallery from "vue-masonry-gallery";
 import Modal from "./GalleryComponents/Modal.vue";
 import axios from "axios";
 export default {
@@ -38,7 +65,8 @@ export default {
       modalContent: "",
       random: false, // randomize thumbs order
       imgsArr: [],
-      group: 0 // The number of times the currently loaded image is loaded
+      group: 0 ,
+      images:[]// The number of times the currently loaded image is loaded
     };
   },
   components: {
@@ -48,32 +76,18 @@ export default {
     Footer
   },
   methods: {
+    mansoryHeight(){
+       var heights=[200,250,300,400]
+       var ind=(Math.random()*10)%4
+       return heights[ind]
+    },
     getData() {
       // "../../static/data/loadImages.json?group=" + this.group
       //BACKEND_ENDPOINT+'api/gallery?group='+this.group
       axios
-        .get(BACKEND_ENDPOINT+'api/gallery?group='+this.group) // In the real environment, the backend will return a new image array based on the parameter group. Here I simulate it with a stunned json file.
-        .then(res => {
-          this.group++;
-          res.data.forEach(function(t){
-            
-              t.srcBig=BACKEND_ENDPOINT+'storage/'+t.source;
-              t.href= null;
-             
-              t.info="First description";
-              t.target= "modal";
-              t.source=BACKEND_ENDPOINT+'storage/'+t.source;
-          })
-          if (this.group === 2) {
-            // The simulation has no new data, showing slot="waterfall-over"
-            this.$refs.waterfall.masonryOver();
-            return;
-          }
-          if (this.random) {
-            this.imgsArr = this.shuffle(this.imgsArr.concat(res.data));
-          } else {
-            this.imgsArr = this.imgsArr.concat(res.data);
-          }
+        .get(BACKEND_ENDPOINT+'api/gallery') // In the real environment, the backend will return a new image array based on the parameter group. Here I simulate it with a stunned json file.
+       .then(res => {
+          this.images=res.data
         });
     },
     // Fisher–Yates Shuffle: https://bost.ocks.org/mike/shuffle/
@@ -134,263 +148,84 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "../assets/scss/animate";
-* {
-  margin: 0;
-  padding: 0;
+<style >
+.main{
+  position:relative;
+  height:100%;
+  width:100%;
 }
-a {
-  color: #000;
-  text-decoration: none;
-  &:active {
-    color: #000;
-  }
+.main .gallery{
+   position:relative;
+   height:auto;
+   width:90%;
+   margin:auto;
+   padding:45px 0;
+   display:grid;
+   grid-template-columns:auto auto auto auto;
+   grid-gap: 2vh;
+   grid-auto-flow:dense;
 }
-html,
-body,
-#app {
-  height: 100%;
-  background-color: #f5f6f7;
-}
-.lightbox-alpha {
-  position: fixed;
-  background: rgba(0, 0, 0, 0.7);
-  height: 100%;
-  width: 100%;
-  z-index: 999;
-  opacity: 1;
-  top: 0;
-  left: 0;
-  .lightbox-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    /*height: calc(100% - 50px);*/
-    height: auto;
-    overflow: auto;
-  }
-}
-#app {
-  position: relative;
-  #header {
-    height: 80px;
-    display: block;
-    background: rgb(232, 232, 232);
-    background: rgb(236, 236, 236);
-    background: linear-gradient(
-      0deg,
-      rgba(236, 236, 236, 1) 0%,
-      rgba(210, 210, 210, 1) 94%,
-      rgba(210, 210, 210, 1) 100%
-    );
-    color: #333333;
-    line-height: normal;
-    font-size: 16px;
-    position: sticky;
-    z-index: 999;
-    width: 100%;
-    box-shadow: 0 -3px 8px 2px rgba(0, 0, 0, 0.6);
-    border-bottom: solid 1px #4e4944;
-    .header-block {
-      max-width: 1380px;
-      margin: 0 auto;
-      height: 100%;
-      .vajralogo {
-        float: left;
-        height: 29px;
-        padding-top: 26px;
-        transition: all 0.4s ease-out;
-        &:hover {
-          filter: grayscale(1);
-        }
-      }
-      .npm,
-      .github {
-        float: right;
-        text-align: right;
-        margin-top: 22px;
-        width: 30px;
-        height: 22px;
-        .npmlogo,
-        .ghlogo {
-          height: 22px;
-          margin-left: 10px;
-          transition: all 0.4s ease-out;
-          filter: grayscale(1);
-        }
-        .ghlogo {
-          opacity: 0.1;
-          &:hover {
-            opacity: 1;
-          }
-        }
-        .npmlogo {
-          opacity: 0.2;
-          &:hover {
-            filter: grayscale(0);
-            opacity: 1;
-          }
-        }
-      }
-      img.npm-code {
-        position: relative;
-        right: -80px;
-        top: 59px;
-        float: right;
-        z-index: 99;
-      }
-    }
-  }
-  #content {
-    position: absolute;
-    top: 80px;
-    bottom: 0;
-    width: 100%;
+.main .gallery .img{
+  position:relative;
+  height:100%;
+  width:100%;
+  overflow:hidden;
+  box-shadow:0px 2px 2px rgba(0,0,0,0.9);
+  border-radius:2px;
 
-    .img-info {
-      font-family: Arial, Helvetica, sans-serif;
-      position: absolute;
-      overflow: hidden;
-      top: 0;
-      left: 0;
-      width: 97.8%;
-      height: 100%;
-      text-align: center;
-      opacity: 0;
-      transition: all 0.2s ease-out;
-      transition-delay: 0.05s;
-      p {
-        cursor: text;
-      }
-      .title-info,
-      .desc-info {
-        padding: 10px 4px;
-        position: absolute;
-        transition: all 0.3s ease-out;
-        transition-delay: 0.1s;
-        background-color: rgba(255, 255, 255, 0.8);
-        width: calc(100% - 20px);
-        margin-left: 10px;
-      }
-      .title-info {
-        top: -10px;
-        color: #676464;
-        text-rendering: geometricPrecision;
-        display: block;
-        box-shadow: 0px 4px 4px -4px rgba(0, 0, 3, 0.7);
-      }
-      .desc-info {
-        bottom: -15px;
-        font-size: 14px;
-        color: #5f5f5f;
-        display: block;
-        box-shadow: 0px -4px 6px -5px rgba(0, 0, 3, 0.75);
-      }
-      &:hover {
-        opacity: 1;
-        .title-info {
-          top: 10px;
-        }
-        .desc-info {
-          bottom: 10px;
-        }
-      }
-    }
-  }
 }
-#app {
-  overflow: auto;
-  position: relative;
-  .some-info {
-    line-height: 1.6;
-    text-align: center;
-  }
+.main .gallery .img:first-child{
+  grid-column-start: span 2;
+  grid-row-start: span 3;
 }
-#footer {
-  padding: 10px 0 20px;
-  width: 100%;
-  text-align: center;
-  position: relative;
-  transition: all 0.4s ease-out;
-  p.copyright {
-    width: 108px;
-    margin: 0 auto;
-    color: #adadad;
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+.main .gallery .img:nth-child(2n+3){
+  grid-row-start: span 2;
 }
-@media only screen and (max-width: 1399px) {
-  body {
-    #app {
-      #header {
-        .header-block {
-          max-width: 1040px;
-        }
-      }
-    }
-  }
+.main .gallery .img:nth-child(4n+5){
+  grid-column-start: span 2;
+  grid-row-start: span 2;
 }
-@media only screen and (max-width: 1049px) {
-  body {
-    #app {
-      #header {
-        .header-block {
-          max-width: 680px;
-        }
-      }
-    }
-  }
+.main .gallery .img:nth-child(6n+7){
+  
+  grid-row-start: span 1;
 }
-@media only screen and (max-width: 699px) {
-  body {
-    #app {
-      #header {
-        .header-block {
-          max-width: 100%;
-          margin: 0 30px;
-        }
-      }
-      .lightbox-alpha {
-        .btn-close{
-             top: 20px;
-             right: 10px;
-           }
-         .lightbox-content{
-         top:30px;
-         transform: translate(-50%, 0);
-         width: 90%;
-         img{
-           width: 100%;
-         }
-       }
-     }
-    }
-  }
+.main .gallery .img:nth-child(8n+9){
+  grid-column-start: span 1;
+  grid-row-start: span 1;
 }
-@media only screen and (max-width: 444px) {
-  body {
-    #app {
-      #header {
-        .header-block {
-          img.npm-code {
-            position: absolute;
-            right: 15px;
-          }
-        }
-      }
-      #content{
-        .lightbox-alpha {
-          .btn-close{
-                  right: 5px;
-                }
-         .lightbox-content{
-          }
-        }
-      }
-    }
-  }
+.main .gallery .img img{
+  height:100%;
+  width:100%;
+  object-fit: cover;
+  filter:brightness(0.5)  grayscale(100);
+  transition:0.3s ease-in-out;
+}
+.main .gallery .img:hover img{
+   filter:brightness(1)  grayscale(0);
+}
+/*Responsive design*/
+@media only screen and (max-width: 768px){
+   .main .gallery{
+      display:grid;
+      grid-template-columns: auto auto auto;
+   }
+}
+@media only screen and (max-width: 430px){
+   .main .gallery{
+      display:grid;
+      grid-template-columns: auto auto ;
+   }
+    .main .gallery .img{
+      display:block;
+      width:100%;
+      height:100%;
+      margin:2% 0;
+   }
+       .main .gallery .img img{
+      display:block;
+      width:100%;
+      height:100%;
+      filter:brightness(1) grayscale(0);
+   }
 }
 </style>
