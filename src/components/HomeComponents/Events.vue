@@ -54,19 +54,18 @@
                      <div class="col-sm-12">
                           <div class="section_title">
                               
-                              <h2>Today events</h2>
+                              <h2>Today's events</h2>
                           </div>
                      </div>
                   </div>
                   <div class="row">
-                      <div class="news-active" style="width:100%;">
-                          <carousel :perPageCustom="[[1199,3],[920,3],[420,2],[0,1]]" :mouse-drag="true" :autoplay="true">
+                       <div class="news-active" style="width:100%;">
+                          <carousel :perPageCustom="[[1199,3],[920,3],[420,2],[0,1]]" :mouse-drag="true" :autoplay="true" >
                             <slide  v-for="event in today" :key="event.id">
-                                
-                               <div class="col-md-4">
+                               <div class="col-md-12"  >
                                  <div class="latest-news-wrap" >
                                    <div class="news-img">
-                                       <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="event-img-size  ">
+                                       <img :src="`${backendEndpoint()+'storage/'+event.source}`" class="event-img-size  img-responsive">
                                        <div class="deat" style="float:left">
                                            <span>{{event.day}}</span>
                                            <span>{{event.month}}</span>       
@@ -78,7 +77,7 @@
                                             <strong class="price"> {{event.price}} DA</strong> <br><br>
                                            {{event.description |  truncate(100)}}
                                         </p><br>
-                                       <a href="#"  @click.prevent="openModal(event)">Read more</a>
+                                        <a href="#"  @click.prevent="openModal(event)">Read more</a>
                                     </div>
                                </div>
                           </div>
@@ -102,9 +101,6 @@
                       <div class="news-active" style="width:100%;">
                           <carousel :perPageCustom="[[1199,3],[920,3],[420,2],[0,1]]"  :mouse-drag="true" :autoplay="true" >
                             <slide  v-for="event in upcoming" :key="event.id">
-                                
-
-
                                <div class="col-md-4">
                                  <div class="latest-news-wrap" >
                                    <div class="news-img">
@@ -134,13 +130,13 @@
             <div class="dialog" v-if="crtSelectedItem">
                 <br/>
                 <h1 class="">{{crtSelectedItem.name}}</h1>
-                <img :src="`${backendEndpoint()+'storage/'+crtSelectedItem.source}`" class="img-responsive"/>
+                <img :src="`${backendEndpoint()+'storage/'+crtSelectedItem.source}`" class="img-responsive" :loop="true"/>
                 <p class="lead">
                     {{crtSelectedItem.description}}
                 </p>
 
-               <strong class="text-danger">For registering to this event,let us a message with your informations in contact session</strong>
-               <a class="btn btn-warning" @click="closeModal" href="#contact" v-smooth-scroll>Contact</a>
+               <strong class="text-danger">To secure a spot for this trip,kindly leave a message for us with your details in the contact section</strong>
+               <a style="color:white" class="btn btn-warning" @click="closeModal" href="#contact" v-smooth-scroll>Contact</a>
             </div>
            </sweet-modal>
 

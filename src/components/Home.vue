@@ -54,9 +54,9 @@
                                 <h1 class="text-left animated fadeInLeft">{{slide.title}}</h1>
     
                                 <p class="text-left">
-                                   Stay calm, relax and enjoy exploring our awesome gallery,videos and events.
+                                   {{slide.citation}}
                                 </p>
-                                <a href="" id="vidBtn">GET STARTED</a>
+                                <a href="#portfolio" v-smooth-scroll id="vidBtn">GET STARTED</a>
                             </div>
                         </div>
                     </div>

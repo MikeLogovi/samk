@@ -37,7 +37,7 @@
 					<div class="col-md-5 col-md-push-1">
 						<div class="gtco-contact-info">
 							<h3>Our Address</h3>
-							<p>For more information and enquires,contact us or leave a message for us through the following useful links below.Feel free,SAM K is here for you.</p>
+							<p>For more information and enquiries,contact us or leave a message for us through the following useful links below.Feel free,SAM K is here for you.</p>
 								<i class="fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;Tizi.Ouzou, Tamda<br/>
 								<i class="fa fa-phone"></i>&nbsp;&nbsp;<a href="tel://+213 542470511">+213 542 47 05 11</a><br>
                 <i class="fa fa-phone"></i>&nbsp;&nbsp;<a href="tel://+213 542241352">+213 542 24 13 52</a><br>

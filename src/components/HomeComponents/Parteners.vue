@@ -5,8 +5,8 @@
         </div>
    
         <div class="container">
-               <carousel :perPageCustom="[[1199,3],[920,3],[420,2],[0,1]]"  :mouse-drag="true" :autoplay="true">
-                        <slide  v-for="partner in partners" :key="partner.id">
+               <carousel :perPageCustom="[[1199,3],[920,3],[800,2],[420,1],[0,1]]"  :mouse-drag="true" :autoplay="true" :loop="true">
+                        <slide  v-for="partner in partners" :key="partner.id" class="slidePosition">
                            <img  :src="`${backendEndpoint()}storage/${partner.source}`" class="logo-parteners " alt=""> 
                         </slide>
                 </carousel>
@@ -68,5 +68,67 @@ export default{
    width:33.3%;
    bottom:0;
    left:33.3%;
+}
+.slidePosition{
+    margin-right:6px;
+}
+@media only screen and (max-width: 338px){
+  .slidePosition{
+       margin-right:1px;
+  }
+}
+@media only screen and (max-width: 430px){
+ .slidePosition{
+       margin-right:4px;
+  }
+}
+@media only screen and (min-width: 431px) and (max-width: 460px){
+ .slidePosition{
+       margin-right:15px;
+  }
+}
+@media only screen and (min-width: 461px) and (max-width: 479px){
+ .slidePosition{
+       margin-right:-5px;
+  }
+}
+@media only screen and (max-width: 499px){
+  
+  
+  
+}
+@media only screen and (min-width: 500px) and (max-width: 700px){
+  .slidePosition{
+       margin-right:15px;
+  }
+   .vidContent{
+       top:50px;
+   }
+  
+}
+@media only screen and (min-width: 701px) and (max-width: 800px){
+   .vidContent h1{
+       font-size:2em;
+   }
+   .vidContent{
+       top:100px;
+   }
+  .slidePosition{
+       margin-right:15px;
+  }
+}
+@media only screen and (min-width: 801px) and (max-width: 900px){
+   .slidePosition{
+       margin-right:20px;
+  } 
+}
+@media only screen and (min-width: 1203px) {
+   .vidContent h1{
+       font-size:3em;
+   }
+   .vidContent{
+       top:200px;
+   }
+   
 }
 </style>

@@ -9,12 +9,13 @@ export default{
               {id:4,"social_media":"twitter","url":"https://twitter.com/SamKTravelTour1","icon":"fa fa-twitter"}
             ],
             slides:[
-                {id:1,src:"/static/slider/slide1.jpg",title:"WELCOME TO SAM K TRAVEL & TOUR"},
-                {id:2,src:"/static/slider/slide2.jpg",title:"AKWAABA !!! SAMK K TRAVEL & TOUR"},
+                {id:1,src:"/static/slider/slide1.jpg",title:"WELCOME TO SAM K TRAVEL & TOUR",citation:'Experience Nature,Explore and Have Fun'},
+                {id:2,src:"/static/slider/slide2.jpg",title:"AKWAABA !!! SAMK K TRAVEL & TOUR",citation:'Experience Nature,Explore and Have Fun'},
+                {id:3,src:"/static/slider/slide3.jpg",title:"BIENVENUE CHEZ SAM K TRAVEL & TOUR",citation:'The New definition and future of African tourism'},
             ],
             videoss:[
                 {id:5,src:"/static/videos/video1.mp4",title:"WELCOME TO SAM K TRAVEL & TOUR"},
-                {id:6,src:"/static/videos/video2.mp4",title:"WELCOME hum TO SAM K TRAVEL & TOUR"},
+                {id:6,src:"/static/videos/video2.mp4",title:"WELCOME TO SAM K TRAVEL & TOUR"},
             ]
              
         }

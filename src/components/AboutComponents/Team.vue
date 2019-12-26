@@ -4,7 +4,7 @@
              <h1 class="section-title">Our Awesome Team</h1>
         </div>
         <div class="container team-content">
-            <carousel :perPageCustom="[[1199,3],[920,3],[420,2],[0,1]]" :mouse-drag="true" :autoplay="true">
+            <carousel :perPageCustom="[[1199,3],[920,3],[420,2],[0,1]]" :mouse-drag="true" :autoplay="true" :loop="true">
                 <slide v-for="team in teams" :key="team.id">
                       <div class=" col-sm-12">
                       <div class="team-block">

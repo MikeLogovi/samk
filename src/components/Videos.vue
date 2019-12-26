@@ -7,40 +7,31 @@
          <div class="container text-center">
               <h1 class="section-title">Videos</h1>
          </div>
+           <sweet-modal ref='modal'>
+             <div id="dialog" v-if="crtSelectedItem"
+                  style="padding-bottom:0%; position:relative; display:block; width: 100%">
+                   <iframe width="100%" height="100%" id="myvid"  :src="crtSelectedItem.source" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                   <a class="btn btn-success" style="color:white" @click.prevent="closeModal" href="#">Stop video</a>
+            </div>
+     
+           </sweet-modal>
          <div class="container marketing">
              <div class="row featurette" v-for="video in videos" :key="video.id">
-               <br>
                <hr>
                   <div class="col-md-7">
-                    <h2 class="featurette-heading">{{video.title}}</h2>
-                    <p class="video-description">{{video.description}}</p>
+                    <div class="video-text">
+                      <h2 class="featurette-heading">{{video.title}}</h2>
+                      <p class="video-description">{{video.description}}</p>
+                    </div>
                   </div>
                   <div class="col-md-5 ">
-
-                        <div class="video_area" :style="`background:url(${backendEndpoint()+'storage/'+video.brand_image}) no-repeat center center`">
-                                
+                        <div class="video_area" :style="`background:url(${backendEndpoint()+'storage/'+video.brand_image}) no-repeat center center`">  
                              <div class="video_button">
-                                 <a href="" data-toggle="modal" :data-target="`#myModal${video.id}`">
+                                 <a href="" @click.prevent="openModal(video)">
                                      <span class='profilepicture' ></span>
                                  </a>
                              </div>
                         </div>
-                        <div class="modal fade"  :id="`myModal${video.id}`" :tabindex="video.id" role="dialog">
-                        <div class="modal-dialog modal-lg" role="document">
-                              <div class="modal-content">
-                                   <div class='modal-header raisa-video-btn'>
-                                       <button type="button" class="btn btn-default" data-dismiss="modal">
-                                           Close
-                                        </button>
-                                  </div>
-                                  <div class="modal-body">
-                                        <div class="video-container">
-                                            <iframe width="560" height="315" :src="video.source" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
-                                  </div>
-                              </div>
-                        </div>
-                   </div>
                   </div>
                   <hr class="featurette-divider">
         </div> 
@@ -57,13 +48,15 @@
 import TopBar from './TopBar'
 import Footer from './Footer'
 import {mapState} from 'vuex'
+import { SweetModal, SweetModalTab } from 'sweet-modal-vue'
 export default {
-    components:{TopBar,Footer},
+    components:{TopBar,Footer,SweetModal, SweetModalTab},
      computed:{
         ...mapState([
             'videos'
         ])
     },
+     data: () => ({ crtSelectedItem: null }),
     mounted(){
           this.loadVideos() 
           Echo.channel('my-channel').listen('.video-crud',(data)=>{
@@ -74,6 +67,15 @@ export default {
     methods:{
         loadVideos(){
             this.$store.dispatch('loadVideos')
+        },
+        openModal (item) {
+            this.crtSelectedItem = { ...item };
+            this.$refs.modal.open();
+        },
+        closeModal(){
+            var iframe= document.getElementById('myvid');<br/>
+            iframe.src = iframe.src;<br/>
+            this.$refs.modal.close();
         }
     }
 }
@@ -131,7 +133,7 @@ export default {
 
 @media (min-width: 62em) {
   .featurette-heading {
-    margin-top: 7rem;
+    /*margin-top: 7rem;*/
   }
 }
 
@@ -159,11 +161,6 @@ export default {
   letter-spacing:0.025rem;
   padding-bottom:15px;
 }
-
-
-
-
-
 .videos{
     position:relative;
 }
@@ -192,10 +189,6 @@ export default {
     background-size:cover;
 }
 
-.video-right-static{
-    position: static;
-}
-
 .profilepicture{
     position:absolute;
     border-radius:50%;
@@ -214,7 +207,7 @@ export default {
     text-align:center;
     z-index:888;
    background:url(../../static/images/play.png) no-repeat center center;
-    background-size:cover;
+    background-size:cover!important;
     transition:all 0.4s ease-in-out;
 }
 .profilepicture::before{
@@ -229,6 +222,45 @@ export default {
     text-align:center;
     margin:0 auto;
     top:26%;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 600px){
+  .video_area{
+    background-size:cover!important;
+    width:100%;
+    height:200px;    
+  }
+  .profilepicture{
+    width:50px;
+    height:50px;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 740px){
+
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1239px){
+  .video-text{
+    
+  }
+}
+@media only screen and (min-width: 741px) and (max-width: 1270px){
+.video_area{
+    background-size:cover!important;
+    width:80%;
+    height:200px;    
+  }
+  .profilepicture{
+    width:50px;
+    height:50px;
+  }
+}
+
+
+
+.video-right-static{
+    position: static;
 }
 
 .video_button{

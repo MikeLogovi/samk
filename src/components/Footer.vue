@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-xs-12 segment-four">
                         <h2>Our newsletter</h2>
-                        <p>In order to be informed in time converning all our future trips and travels Sam K TRAVEL AND Tour would like you to subscribe to our newsletter</p>
+                        <p>In order to be informed in time concerning all our future trips and travels Sam K TRAVEL AND Tour would like you to subscribe to our newsletter</p>
                         <form @submit.prevent="storeEmail">
                             <input type="email" name="email" placeholder="Your email adress" v-model="form.email" :class="{ 'is-invalid ': form.errors.has('email') }">
                             <has-error :form="form" field="email"></has-error>

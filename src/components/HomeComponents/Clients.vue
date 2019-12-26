@@ -17,8 +17,8 @@
         <div class="container">
             
                 <div  id="testimonial-slider">
-                    <carousel :perPageCustom="[[1199,3],[920,3],[420,2],[0,1]]"  :mouse-drag="true" :autoplay="true">
-                        <slide v-for="comment in comments" :key="comment.id">
+                    <carousel :perPageCustom="[[1199,3],[920,3],[420,2],[0,1]]"  :mouse-drag="true" :autoplay="true" :loop="true">
+                        <slide v-for="comment in comments" :key="comment.id" style="height:70vh">
                             <div class="testimonial" >
                                     <span class="icon fa fa-quote-left"></span>
                                     <p class="description">
@@ -28,7 +28,7 @@
                                         <div class='pic'>
                                             <img :src="`${backendEndpoint()}storage/${comment.source}`" alt="">
                                         </div>
-                                        <h1 class="title">coucou</h1>
+                                        <h1 class="title">{{comment.author_name}}</h1>
                                         <span class="post">{{comment.author_function}}</span>
                                     </div>
                                 </div>
@@ -89,7 +89,7 @@ export default {
 <style scoped>
 .clients{
     background-color:#eee;
-  
+    
 }
 
 .testimonial{
@@ -153,7 +153,8 @@ export default {
     text-shadow: 5px #eee;
     color:red;
     text-transform:capitalize;
-    margin:0 0 5px 0;
+    display:block;
+    margin:0 0 25px 0;
 }
 .testimonial .post{
     display:block;

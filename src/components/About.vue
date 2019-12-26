@@ -41,17 +41,17 @@
         <p >
              <ul>
                  <li>
-                   We intend to promote tourism in African countries by exposing it's culture,as well as 
+                   We intend to promote tourism in African countries by exposing it's cultures ,as well as 
                    the amazing and awesome sites of the continent to the world
                  </li>
                 
                  <li>
-                   We are also passionate and committed to developing and implementing safety measure to ensure
+                   We are also passionate and committed to developing and implementing safety measures to ensure
                    the maximum security of our Dear clients whenever/wherever they travel with us 
                  </li>
                  <li>
                    We believe that tourism is a way of life ,therefore everyone should develop the interest to travel
-                   in order to,know,explore,and learn about different surroundings,cultures,and traditions..This is not limites to a particular 
+                   in order to,know,explore,and learn about different surroundings,cultures,and traditions..This is not limited to a particular 
                    class of persons hence we intend to make the industry more attractive,educative,fun and above all economical 
                  </li>
                  <li>
@@ -76,8 +76,8 @@
           to the island at Tigzirt, a stress-relief visit to Tipaza and the almighty tour to Oran,Tlemcen and Batna.
           Hospitality is number one.The company partners with well known Hotels and restaurants in providing
           the best services for its clients.Fun and entertainment has never been a miss.Sam K has well trained 
-          workers both skilled and not skilled to help brighten your trips.The company never disapoints as it promises great 
-          tours in the years ahead,as well as other parts of the world
+          workers both skilled and non skilled to help brighten your trips.The company never disapoints as it promises great 
+          tours in the years ahead,as well as to other parts of the world.
         </p>
       </div>
       <div class="col-md-5 order-md-1 responsive_position_logo positionning_img_right achievement_img" >
@@ -92,9 +92,8 @@
               SAMUEL KODJO AGODOA
           </p>
           <blockquote>
-              Passions and dreams are like time,nothing can't stop them.
-              And it will be like that still there are people to give sense
-              to the word freedom.
+             It is very wrong for you to think there's no opportunity for you where you are.
+             I see it as the greatest opportunity for you to make something out of nothing
           </blockquote>
      </div>
      <div class="col-md-5 order-md-1 responsive_ceo_img_position">
@@ -357,7 +356,7 @@ blockquote{
        margin-left:0px;
    }
 }
-@media only screen and (min-width: 741px) and (max-width: 1203px){
+@media only screen and (min-width: 800px) and (max-width: 1203px){
    .push_down{
      margin-top:0px;
    }

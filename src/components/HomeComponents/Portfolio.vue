@@ -26,7 +26,7 @@
                 
            <transition name="slide-fade" >
          <div class="container-fluid gallery full-width " >
-                    <div  v-for="project in projects.slice(0,11)" v-bind:key="project.title">
+                    <div  v-for="project in projects.slice(0,12)" v-bind:key="project.title">
                         <div class="col-lg-3 col-md-6 col-xs-12 items no-padding"  v-if="currentFilter == project.portfolio_category_id|| currentFilter === 'ALL'" >
                             <div class="item-img">
                            
@@ -34,7 +34,6 @@
                         
                                  <div class="item-img-overlay"  @click="onClick(project.index)">
                                      <div class="overlay-info full-width">
-                                         <p>Logo|Branding</p> 
                                          <h3>{{project.title}}</h3>
                                          <a  class="popimg" href="javascript:void(0);">
                                            <span class="icon"  @click="onClick(project.index)">

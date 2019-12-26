@@ -101,13 +101,7 @@
                 </div>
           </nav>
            <ul class="social-icons list-inline">
-               <li><a href=""><i class="fa fa-facebook"></i></a></li>
-               <li><a href=""><i class="fa fa-youtube"></i></a></li>
-               <li><a href=""><i class="fa fa-instagram"></i></a></li>
-               <li><a href=""><i class="fa fa-twitter"></i></a></li>
-               <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-               <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-
+               <li v-for="social_media in social_medias" :key="social_media.id"><a :href="social_media.url" target="blank"><i :class="social_media.icon"></i></a></li>
             </ul>
             <!--<div class="corner-circle">
                 <a href="javascript:void(0);" class="nav-close"><span></span><span></span></a>
@@ -160,7 +154,7 @@ export default {
    padding-bottom:0;
     transition:all 0.3s;
     background-color:white;
-    z-index:99999;
+    z-index:999999;
     position:absolute;
     top:0px;
     width:100%;
@@ -170,12 +164,14 @@ export default {
     display:flex;
     align-items:center;
     flex-wrap:wrap;
+    height:100%;
+    margin-right:55px;
 }
 .nav ul li{
     list-style:none;
     display:flex;
     height:100%;
-    margin-right:10px;
+    padding-right:10px;
    
 }
 .nav ul li a:hover{
@@ -239,7 +235,10 @@ export default {
     animation-name:animationFade;
     animation-duration:1s;
     animation-fill-mode:both;
+    z-index:999999;
+    
 }
+
 /*responsive css*/
 @media only screen and (min-width :0px) and (max-width: 1214px){
     .nav ul li{
@@ -268,35 +267,10 @@ export default {
     }
     .mylogo{
         width:90px;
-        height:40px;
+        height:30px;
         /*margin:0 0.4em; */
    }
 }
-@media only screen and  (max-width: 1214px) {
-     .mylogo{
-        width:90px;
-        height:40px;
-        /*margin:0 0.4em; */
-   }
-   .nav{
-    display:flex;
-    justify-content:center;
-   padding-top:0x;
-   padding-bottom:0px;
-    transition:all 0.3s;
-    background-color:white;
-    z-index:9999;
-    position:absolute;
-    top:0px;
-    width:100%;
-    
-}
-}
-
-
-
-
-
 
 
 
@@ -309,7 +283,7 @@ export default {
     height:100%;
     width:100%;
     padding:3.75rem;
-    z-index:99;
+    z-index:999999;
     overflow-x:hidden;
     visibility: hidden;
     opacity:0;
@@ -321,7 +295,7 @@ export default {
     visibility :visible;
     transform:translateY(0);
      transition:all .4s ease-in-out;
-     z-index:99;
+     z-index:999999;
 }
 .full-nav .logo{
     display:flex;
@@ -369,7 +343,8 @@ color:#18191d;
 /*  NAV 3  */
 
 .full-nav .nav3 .menu{
-    margin-top:40%;
+     z-index:99999999;
+    margin-top:20%;
     margin-left:20%;
     display:flex;
     justify-content: center;
@@ -392,6 +367,10 @@ color:#18191d;
 }
 @media only screen and (max-width: 990px){
   .bx-wrapper .bx-pager{left:70px; top:420px;}
+  .logo__brand{
+      height:50px;
+  }
+
 }
 @media only screen and (max-width: 959px){
   .full-nav .nav3 .menu{
@@ -400,6 +379,16 @@ color:#18191d;
     display:flex;
     justify-content: center;
   
+}
+.nav{
+    height:60px;
+}
+.nav.sticky{
+    height:60px;
+}
+
+.nav.sticky .logo__brand{
+    margin-top:-21px;
 }
 }
 @media only screen and (max-width:781px){
@@ -432,6 +421,14 @@ color:#18191d;
 @media only screen and (max-width:541px){
   .bx-wrapper .bx-pager{display:none;}
 }
+@media only screen and (max-width:700px){
+       .full-nav .nav3 .menu{
+    margin-top:20%;
+    margin-left:15%;
+    display:flex;
+    justify-content: center;
+  
+}}
 @media only screen and (max-width:464px){
        .full-nav .nav3 .menu{
     margin-top:20%;
@@ -640,4 +637,44 @@ ul.social-icons.list-inline{
 background-color:#00D320;
     transition:all 0.5s ease-in-out;
 }
+@media only screen and  (max-width: 1214px) {
+     .mylogo{
+        width:90px;
+        height:30px;
+        /*margin:0 0.4em; */
+   }
+  
+   .nav{
+    display:flex;
+    justify-content:center;
+   padding-top:0x;
+   padding-bottom:0px;
+    transition:all 0.3s;
+    background-color:white;
+    z-index:9999;
+    position:absolute;
+    top:0px;
+    width:100%;
+    
+}
+
+
+}
+@media only screen and  (max-width: 950px){
+    .nav.sticky .logo__brand{
+          position:relative;
+          left:20px;
+     }
+      .nav .logo__brand{
+          position:relative;
+          left:20px;
+     }
+}
+
+
+
+
+
+
+
 </style>
